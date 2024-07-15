@@ -1,0 +1,52 @@
+I receive an error, "Firefox is already running, but is not responding" when trying to use Firefox.
+
+Firefox profiles are stored in the user's home directory. 
+HPC systems share home directories across various machines. 
+An instance of Firefox requires exclusive control over these profile resources across various machines. 
+If you try to run Firefox in two places, such as on two HPC compute or login nodes, you will receive this error. 
+
+To solve this problem, one of three approaches can be taken: 
+  first, close the browser on the other machine; 
+  second, create a new profile; or 
+  third, clear out the lock files that prevent Firefox from opening. 
+
+** Solution #1 (Easy)
+Close the browser on the other machine.  This will resolve the problem in most cases.
+
+** Solution #2 (Intermediate)
+Use Firefox's profile management, to create a new profile and run many instances of Firefox simultaneously. To do so,
+
+On Linux machines, open a terminal and enter "firefox -P"
+Here you can create, rename, and delete Firefox profiles. 
+If you'd like to choose your profile each time you start up Firefox, uncheck "Don't ask at startup." 
+You can find more details in the Firefox's Managing Profiles page.
+
+Note that information sharing between profiles is limited, so your bookmarks and form data will not be available. 
+
+** Solution #3 (Advanced)
+Delete the lock files that prevent Firefox from launching. 
+The following shell script will find and remove any lock files that prevent firefox from executing. 
+Save this script with filename cleanFirefox.sh: 
+
+---------------------
+#!/bin/bash                                                                     
+# 
+# Use this script to clean locks inside the .mozilla directory that 
+# prevent firefox from running on multiple machines that share an 
+# NFS system. If you open firefox and get a window claiming, 
+# "another instance of this application is already running [...]" 
+# running this script will enable you to open the application on another
+# host.
+
+files=`find ~/.mozilla -name "*lock"`
+for file in `echo $files`
+do
+    echo "removing $file..."
+    rm "$file"
+done
+--------------------
+
+To execute the script:
+open a terminal
+cd to the directory where you saved the script
+run: sh cleanFirefox.sh 

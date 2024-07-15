@@ -1,0 +1,2504 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+% !TeX root = 2301-353-353m-453-syllabus.tex
+
+% This is a simple template for a LaTeX document using the "article" class.
+% See "book", "report", "letter" for other types of document.
+
+\documentclass[10pt]{article} % use larger type; default would be 10pt
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+	% These packages are optional, depending whether you want the features they provide.
+	% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+	\geometry{letterpaper} % or letterpaper (US) or a5paper or....
+	\geometry{margin=1in} % for example, change the margins to 2 inches all round
+	% \geometry{landscape} % set up the page for landscape
+	%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+\graphicspath{{./figs/}}
+\usepackage{sidecap}
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+%\usepackage{datetime} %suggested to get todays data and time
+% These packages are all incorporated in the memoir class to one degree or another...
+
+\usepackage{listings} % For displaying code
+
+\usepackage{placeins}      % This package gives us \FloatBarrier
+
+\usepackage{mathtools} % this will also load amsmath package
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}
+\chead{DSCI353-353M-453 Syllabus: Data Science: Statistical Learning, Modeling, Prediction and Machine Learning}
+\rhead{}
+%\lfoot{}\cfoot{\thepage}\rfoot{}
+\lfoot{\today}
+\cfoot{}
+\rfoot{\thepage}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%\usepackage[labelfont = footnotesize, textfont = small, justification=centering]{caption}  %allows us to change the font of the captions on figures
+%\setlength{\abovecaptionskip}{5pt}
+%\setlength{\belowcaptionskip}{-10pt}
+
+\usepackage{wrapfig}  %allows figures to have text wrapped around them.  Apparently this does not work perfectly in Latex and requires manual adjustment of figures and such
+
+\hyphenation{op-tical net-works semi-conduc-tor}
+%
+%\usepackage{parskip}
+%\setlength{\parindent}{5pt}
+
+\usepackage{enumitem}  %%%%allows you to begin enumerate at 0
+
+%%%Allows you to have \textsubscript as a command
+% \usepackage{fixltx2e}  %no longer needed since 2015 LaTeX
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+\newcommand{\squeezeup}{\vspace{-2.5mm}}
+
+%%%must be the last package called
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue, citecolor=blue, filecolor=blue, urlcolor=blue, pdftitle=DSCI353-353M-453, pdfauthor=RHF, pdfsubject=DSCI353-353M-453, pdfkeywords=}
+
+%%% END Article customizations
+
+%%% The "real" document content comes below...
+
+\title{CWRU: DSCI353-353M-453 Syllabus \\ \emph{Data Science: Statistical Learning, Modeling and Prediction} \\ Spring 2023 	Tuesday, Thursday 11:30 am to 12:45 pm, In-Person/Remote/Synchronous}
+\author{Prof. Roger H. French, with Paul Leu (Pitt), Kris Davis, Mengjie Li (UCF), Sonya Cirlos (UTRGV), CWRU TAs: Will Oltjen, Kristen Hernandez \& Hein Aung, with Pitt TA: Mingxuan Li, UCF TA: Dylan Colvin}
+%\date{} % Activate to display a given date or no date (if empty),
+         % otherwise the current date is printed
+
+\begin{document}
+\maketitle
+
+%\begin{figure} [!htbp]
+%\centering
+%	\includegraphics[height=.4\textheight]{figs/1501DSCI351Syllabus}
+%	\caption{Syllabus, concepts and organization}
+%	\label{fig:Syllabus}
+%\end{figure}
+
+%-------------------------------------------------------
+\section{Joint Undergraduate and Graduate Course}
+
+  \subsection{DSCI353 and DSCI353M}
+
+    DSCI353 is the 4th level class in the \textbf{Applied Data Science Undergraduate Minor}.
+    The ADS Minor is available to CWRU students across all the schools of the University.
+    For more information see
+
+    \begin{itemize}
+      \item Applied Data Science in the CWRU Bulletin
+        \subitem \href{https://bulletin.case.edu/schoolofengineering/materialsscienceengineering/#undergraduatetext}{https://bulletin.case.edu/schoolofengineering/materialsscienceengineering/\#undergraduatetext},
+       \item And the CWRU Data Science Web Page
+       \subitem \href{https://case.edu/datascience/students/degree-programs/undergraduate-applied-data-science-minor}{https://case.edu/datascience/students/degree-programs/undergraduate-applied-data-science-minor} page.
+    \end{itemize}
+
+    DSCI353 will introduce students to linear and beyond linear modeling, prediction and machine learning (including Kera/TensorFlow and Torch deep learning frameworks), the steps in a data analysis the following data cleaning, exploratory data analysis and introduction to linear modeling (the subject of DSCI351-451).
+    This course will use an open data science tool chain consisting of R coding, Rmarkdown, Rstudio IDE and Git version control, and will be based in inferential statistical concepts, the stages of a data analysis and reproducible research.
+
+    DSCI353M section focuses specifically on Exploratory Data Science of Materials and Materials Systems.
+
+  \subsection{DSCI453}
+
+    DSCI453 is a graduate level introduction to data science modeling and prediction.
+    Graduate students will, in addition to the coursework of DSCI353, develop a semester long data science project focused on a topic relevant to their graduate research area, for example time-series, spectral, or image data science problems.
+
+    These projects will include preparing datasets, code scripts and functions, a git repository for other students to use these codes as open source resources, and the preparation of reproducible data science analyses for these problems.
+
+    DSCI453 is one of the classes that satisfy the requirements for the CWRU \textbf{University Graduate Certificate in Applied Data Science}.
+    More information on this transcriptable certificate is available.
+
+    \begin{itemize}
+      \item \href{https://case.edu/gradstudies/prospective-students/certificates}{https://case.edu/gradstudies/prospective-students/certificates}
+      \item \href{https://engineering.case.edu/materials-science-and-engineering/graduate-certificate-in-applied-data-science}{https://engineering.case.edu/materials-science-and-engineering/graduate-certificate-in-applied-data-science}
+    \end{itemize}
+
+  \subsection{DSCI353-353M and DSCI453 Prerequisites}
+
+    For DSCI353/353m
+    \begin{enumerate}
+      \item ENGR131 Elementary Computer Programming or equivalent
+      \item STAT312R Basic Statistics for Engineering and Science or equivalent
+      \item DSCI351 Exploratory Data Analysis
+    \end{enumerate}
+
+    For DSCI453,
+    \begin{enumerate}
+      \item DSCI451 Exploratory Data Analysis
+      \item Or comparable experience in data analysis with R or Python
+    \end{enumerate}
+
+\section{Course Description}
+
+  In this course, we will use an open data science tool chain to develop reproducible data analyses useful for inference and prediction, using modeling and machine learning, for the behavior of complex systems.
+  In addition to the standard data cleaning, assembly and exploratory data analysis steps essential to all data analyses, we will identify statistically significant relationships from datasets derived from population samples, and infer the reliability of these findings.
+  We will use regression methods to model a number of both real-world and lab-based systems producing predictive models applicable in comparable populations.
+  We will assembly and explore real-world datasets, use pair-wise plots to explore correlations, perform clustering, self-similarity, and logistic regression develop both fixed-effect and mixed-effect predictive models.
+  We will also introduce machine-learning approaches for regression and classification including Keras/TensorFlow for neural network and other modeling techniques.
+  Results will be interpreted, visualized and discussed.
+
+  We will introduce the basic elements of data science and analytics using \href{"http://cran.case.edu/"}{R Project open source software}.
+  We will also use the Rstudio IDE (Integrated Development Environment), \url{https://www.rstudio.com/products/RStudio/}.
+  R is an open-source software project with broad abilities to access machine-readable open-data resources, data cleaning and assembly functions, and a rich selection of statistical packages, used for data analytics, model development, prediction, inference and clustering.
+  We will also learn tidy principles for data analysis, pipes and ggplot vs base graphics approaches to data visualization.
+
+  For students with little prior R experience, we'll introduce resources to learn R data types, reading and writing data, looping, plotting and regular expressions.
+  With this background, it becomes possible to start performing variable transformations for linear regression fitting and developing structural equation models, fixed-effects and mixed-effects models along with other statistical learning techniques, while exploring for statistically significant relationships.
+
+  Python version 3 (or Python3) is also commonly used for data science and data analyses, while at the same time Python is a general purpose programming language.
+  Both R and Python are interpreted languages that do not require compiling the code prior to execution.
+  Due to Python's broader spread of use cases (from data analysis to full applications to software engineering) it can be easier for a developing data scientist to find useful answers to questions, by learning R first.
+  Python can then be learned as a second data analysis language.
+  Students are welcome to use Python in the DSCI classes.
+
+  The class is taught using a ``practicum'' approach and will be structured to have a balance of theory and practice.
+  We'll split class into Foundation and Practicum
+  	a) Foundation: lectures, presentations, discussion
+  	b) Practicum: coding, demonstrations and hands-on data science work.
+
+  Every student will have access to their own pre-configured Open Data Science VDI computer, already configured for fast and easy adoption of good data science practices and tools.
+
+  \subsection{Outcomes}
+
+{\bf Capabilities}
+\begin{itemize}
+  \item Introduction to statistical and data science.
+  \item Familiarity with R Statistics, scripting, functions, packages, automated data analysis.
+  \item Familiarity with data assembly, exploratory data analysis and statistical modeling and learning.
+  \item Applications of domain knowledge and analytics to identify important predictors and develop initial predictive models.
+  \item Introduction to methods of reproducible research, including markdown, LaTeX and Git.
+\end{itemize}
+
+{\bf Predictive Modeling \& Statistical and Machine Learning:}
+\begin{itemize}
+  \item Familiarity with inference and significance of sample results to populations
+  \item Familiarity with regression and linear and non-linear statistical model building
+    \subitem Including training, testing and validating dataset strategies
+  \item Applications of domain knowledge and statistical analytics
+    \subitem To identify important predictors and develop initial predictive models
+  \item Familiarity with clustering, self-similarity methods
+    \subitem For categorization by different distance metrics
+  \item Introduction to machine-learning approaches such as
+    \subitem Tree-based methods
+      \subsubitem Decision Trees
+      \subsubitem Random Forest
+    \subitem Support Vector Machines
+    \subitem Neural Networks such as
+      \subsubitem Multilayer Perceptron
+      \subsubitem Artificial Neural Networks
+      \subsubitem Convolutioanal Neural Networks
+      \subsubitem Recurrent Neural Networks
+    \subitem Deep Learning
+      \subsubitem Keras \& TensorFlow2
+      \subsubitem Torch, rTorch and PyTorch
+\end{itemize}
+
+{\bf Data types include:}
+\begin{itemize}
+  \item Time-series,
+  \item Spectral
+  \item Images
+  \item And higher order datatypes,
+    \subitem And their assembly to produce augmented and derivative datasets.
+\end{itemize}
+
+{\bf Data set characteristics will include}
+\begin{itemize}
+  \item Variety: Types of data and information, including both structured and unstructured data.
+  \item Volume: Data from human sources (vendors, suppliers, distributors, customers, etc.) and sensor networks,  both small and large data volumes.
+  \item Velocity: Short time interval datasets.
+\end{itemize}
+
+
+%-------------------------------------------------------
+\section{DSCI353-353M-453 Syllabus: Weekly Topics}
+\FloatBarrier
+\begin{table}[h]
+  \centering % used for centering table
+  \begin{tabular}{| l | p{3.9cm} | p{3.7cm} | c | p{2.8cm} |} % centered columns (5 columns)
+    \hline %inserts horizontal line
+    Day:Date & Foundation & Practicum & Readings(optional) & Due(optional) \\ % inserts table heading
+    \hline
+    \hline % inserts double horizontal line
+    %	 w1\addtolength{}{•}
+    w01a:Tu:1/17/23 & Markov Cluster & R, Rstudio IDE, Git & & (LE0) \\ % inserting body of the table
+    \hline %inserts single line
+    w01b:Th:1/19/23 & Stat. Learning, Approach & Bash, Git, Class Repo & ISLR1,2 (R4DS-1-3) & \\
+    \hline
+    \hline
+    w02a:Tu:1/24/23 & Lin. Regr. Bias-Var. & SemProjs; Regr. Ovrvw & ISLR3,(R4DS-4-6) & {\bf (LE0:Due)} LE1 \\
+    \hline
+    w02b:Th:1/26/23 & Train/Test, Bias vs. Vari. & Tidyverse Review  & DL01 DL02 (R4DS-7,8) &  \\
+    \hline
+    w02Pr:Fr:1/27/23 & \textbf{ADD DROP} & \textbf{DEADLINE} & & {\bf 453 Update 1} \\
+    \hline
+    \hline
+    w03a:Tu:1/31/23 & Logistic Regr. Classif & Pred. Analytics, Regr. & DL03,ISLR4 & \\
+    \hline
+    w03b:Th:2/2/23 & LDA/QDA & ggPlot2, Code Expect. & DL04, DL05 & {\bf LE1:Due}, LE2 \\
+    \hline
+    w03:Sa:2/4/23 &  & & & {\bf LE1:Due} \\
+    \hline
+    \hline
+    w04a:Tu:2/7/23 & Resample Cross-Valid. & ggplot & ISLR5 & \\
+    \hline
+    w04b:Th:2/9/23 & DL, ML Overview & Multilevel Mod.  & ISLR6 (R4DS9-16) & \\
+    \hline
+    w04Pr:Fr:2/10/23 &  & &  & {\bf 453 Update 2} \\
+    \hline
+    \hline
+    w05a:Tu:2/14/23 & Resampling: Bootstrap & Bootstrap Mixed Effects & DL2R1, DL06,07 & {\bf LE2:Due}, LE3 \\
+    \hline
+    w05b:Th:2/16/23 & Subset Selec., Shrink. & Dim. Red. PCA & DLwR2 & \\
+    \hline
+    w05Pr:Fr:2/17/23 &  & &  & {\bf 453 Rep. Out 1} \\
+    \hline
+    \hline
+    w06a:Tu:2/21/23 & ML with NNs & ggplot, clustering & DLwR3 & \\
+    \hline
+    w06b:Th:2/23/23 & Beyond Linear Modls & Feature Select., Caret & ISLR7 (R4DS22-25) & {\bf LE3:Due}, LE4 \\
+    \hline
+    w06Pr:Fr:2/24/23 &  &  &  & {\bf 453 Update 3} \\
+    \hline
+    \hline
+    w07a:Tu:2/28/23 & Dec. Trees, Rand. Forest & Tidy Modeling & ISLR8, DL08,09 &  \\
+    \hline
+    w07b:Th:3/2/23 & MidTerm Review, SVM & SVM, SVR, ROC & ISLR9 (R4DS26-30) & {\bf Peer Review 1} \\
+    \hline
+    \hline
+    w08a:Tu:3/7/23 & ML Overview & , Keras/TF2, Torch & ISLR10.1,10.2 &  \\
+    \hline
+    w08b:Th:3/9/23 & {\bf MIDTERM EXAM} &  & DL10,11 & {\bf LE4:Due} LE5 \\
+    \hline
+    w08Pr:Fr:3/10/23 &  & &  & {\bf 453 Update 4} \\
+    \hline
+    \hline
+    Tu:3/14/23 & {\bf SPRING} & {\bf BREAK} & ISLR10.3,10.4 &   \\
+    \hline
+    Th:3/16/23 & {\bf SPRING} & {\bf BREAK} & ISLR10.5,10.6,  &  \\
+    \hline
+    \hline
+    w09a:Tu:3/21/23 & Deep Learning & TF2 Keras Intro &  & ISLR10.7,10.8, DLwR3 \\
+    \hline
+    w09b:Th:3/23/23 & Computer Vision, CNN & CNN w/TF2, Overfit &DLwR4, DL12,13 &  \\
+    \hline
+    w09Pr:Fr:3/24/23 &  & &  & {\bf 453 Rep. Out 2} \\
+    \hline
+    \hline
+    w10a:Tu:3/28/23 & Deep Learn Intro & NN Types & DLwR5 Hinton ImageNet & \\
+    \hline
+    w10b:Th:3/30/23 & DL CNN,RNN ImageNet & NN Types, CNN wTF2 &   & \\
+    \hline
+    w10Pr:Fr:3/31/23 & &  & & {\bf 453 Upd.5} \& {\bf PrRev 2} \\
+    \hline
+    Sa:4/1/23 & & & & {\bf LE5:Due} LE6 \\
+    \hline
+    \hline
+    w11a:Tu:4/4/23 & Fitting NNs  & AUC,Prec,Recall Fruit &  &  \\
+    \hline
+    w11b:Th:4/6/23 & NLP, Graphs \& ML &  & LeCun DL Rev. 2015 & \\
+    \hline
+    \hline
+    w12a:Tu:4/11/23 & Graphs \& ML & NLP with sequences   & DLwR6 &  \\
+    \hline
+    w12b:Th:4/13/23 & NLP w attention & Graph Repr Proc Wrkflw &  & {\bf LE6:Due} LE7 \\
+    \hline
+    \hline
+    w13a:Tu:4/18/23 & DL Frameworks & Explaining DL w Lime &  & \\
+    \hline
+    w13b:Th:4/20/23 & Linux Distros XGBoost & Explain Preds & Deep Dream & \\
+    \hline
+    w13Pr:Fr:4/21/23 &  & &  & {\bf 453 Rep. Out 3 Due} \\
+    \hline
+    \hline
+    w14a:Tu:4/25/23 & Tranformers &  &  &  \\
+    \hline
+    w14b:Th:4/27/23 & Final Exam Review & Torch NN \& DeepLearn  &  & {\bf LE7:Due} \\
+    \hline
+    w14Pr:Fr:4/28/23 &  & &  & {\bf Peer Rev 3 Due} \\
+    \hline
+    \hline
+    & {\bf FINAL EXAM} & {\bf Th. 5/4/23, 12-3pm} & Nord 356 \& Zoom & \\
+    \hline
+    \hline
+    & {\bf 453 Final PDF Report} & {\bf Fr. 4/29, 11:59pm} & & \\
+    \hline
+  \end{tabular}
+  \caption{DSCI353-353M-453 Weekly Syllabus. R4DS-x.y, OISx.y, ISLRx.y, DLwRx.y, DLGBx.y refers to chapters and sections assigned as reading in our textbooks. DLx are deep learning articles. }
+  \label{table:Syllabus2} % is used to refer this table in the text
+\end{table}
+
+\FloatBarrier
+
+\section{Homework, Project, Report-Presentation Grading}
+
+  These classes are graded on a curve, not on a fixed point system.
+
+  {\bf DSCI353-353M is graded on 100 points basis}
+
+  \begin{align*}
+    Seven \, Lab Exercises, \, worth \, 9 \, points \, each = 63 pts. \\
+    353-353M-453 SemProj Grading Feedback, \, worth \, 2 \, points \, each = 6 pts. \\
+    Midterm \, Exam = 10 pts. \\
+    Final \, Exam = 21 pts. \\
+    {\bf Total = 100 pts}
+  \end{align*}
+
+  {\bf DSCI453 is graded on a 140 point basis}
+  \begin{align*}
+    Seven \, Lab Exercises, \, worth \, 9 \, points \, each = 63 pts. \\
+    353-353M-453 SemProj Grading Feedback, \, worth \, 2 \, points \, each = 6 pts. \\
+    Midterm \, Exam = 10 pts. \\
+    Final \, Exam = 21 pts. \\
+   Five \, SemProj \, Updates \, worth \, (2 pt/each) \, =  \ 10 \ pts. \\
+   Three \, SemProj \, presentations (5 pts/each) = \, 15 \, pts. \\
+    One \, SemProj \, Final \, Report  = \ 15 \ pts. \\
+    {\bf Total = 140 pts}
+  \end{align*}
+
+
+
+\section{Textbooks and Readings}
+
+  Required Texts and their Abbreviation, which is used in the syllabus:
+
+  OISv4 is an open source text book, published under a creative commons license, for free distribution as a pdf.
+  In addition a copy can be purchased from Amazon for 20 dollars.
+  OISv4 is the main textbook for DSCI351-351m-451, and is covered in that class.
+  It is provided here for reference.
+
+  R4DS can be purchased as ebooks (pdf, epub, mobi formats) from  \href{"http://www.oreilly.com/"}{O'Reilly Media}.
+  It is also available as a web-readable book at \href{http://r4ds.had.co.nz/}{R For Data Science} and as a \href{https://bitbucket.org/cwrudsci/r4ds}{Bookdown Code Repo on Bitbucket}.
+  They can also be purchased as physical books.
+
+
+\FloatBarrier
+
+  \subsection{Background Data Science books from DSCI351}
+
+    Peng R Programming (PRP) (Figure 1) and Peng Exploratory Data Analysis (EDA) (Figure 2) are introductory books to R and Data Science and Analysis.
+    These are  Leanpub books, available from LeanPub for a ”pay what you want” price.
+
+    OpenIntro Statistics (Figure 3), is the open source Inferential Statistics Textbook that we use in DSCI 351/351m/451.
+
+    Also R for Data Science (Figure 4) teaches using R and the Tidyverse Functions for efficient and streamlined data analysis code.
+    So this is a very important book to be familiar with.
+
+    \begin{SCfigure}
+      \centering
+      \caption{{\bf PRP}: Roger Peng, {\bf \textsc{R Programming for Data Science}}. 2014 \cite{peng_r_2014}}
+      \includegraphics[width=0.2\textwidth]{Peng-R-Programming} % picture filename
+    \end{SCfigure}
+
+    \begin{SCfigure}
+    	\centering
+    	\caption{{\bf EDAwR}: Roger Peng, {\bf Exploratory Data Analysis With R}. 2015 \cite{peng_exploratory_2015}}
+    	\includegraphics[width=0.2\textwidth]{Peng-EDAwithR} % picture filename
+    \end{SCfigure}
+
+    \begin{SCfigure}
+      \centering
+      \caption{{\bf OIS}: David M. Diez, Christopher D. Barr, and Mine Cetinkaya-Rundel, \href{"https://www.openintro.org/stat/textbook.php"}{ {\bf OpenIntro Statistics 4th Ed.} } 2015 \cite{davidm.diezOpenIntroStatisticsFourth2019} }
+      \includegraphics[width=0.2\textwidth]{OISv4} % picture filename
+    \end{SCfigure}
+
+
+    \begin{SCfigure}
+      \centering
+      \caption{{\bf R4DS}: Garrett Grolemund, Hadley Wickham, {\bf R for Data Science}. 2017 \cite{wickham_r_2017}}
+      \includegraphics[width=0.2\textwidth]{r4ds} % picture filename
+    \end{SCfigure}
+
+%    \FloatBarrier
+
+ \FloatBarrier
+
+  \subsection{DSCI353-353M-453 Textbooks}
+
+    The main textbooks for this semester are the following
+
+    \begin{enumerate}
+      \item \textbf{Introduction to Statistical Learning with R, 2nd Edition 2021} (ISLR, Figure 5) is a Springer book which is available for free as a pdf.
+      \item \textbf{R for Data Science} (R4DS, Figure 4), which teaches Tidyverse R coding, is used in both DSCI351/351m/451 and DSCI353/353m/453 courses.
+      \item \textbf{Deep Learning with R} (DLwR, Figure 7) is used in DSCI353-353m-453 for Deep Learning and TensorFlow.
+      \item \textbf{Deep Learning} by Goodfellow, Bengio, 2016 for training deep networks.
+    \end{enumerate}
+
+    We will also use a second deep learning framework, Torch from R, and PyTorch for use from Python.
+
+    Additional reading assignments will be distributed via the course git repository in the readings subdirectory.
+
+    Note that ISLR 2nd Ed. is the introductory book, for which Elements of Statistical Learning (ESL, Figure 6) is the advanced book.
+    ESL is widely considered the bible of Machine Learning, and is also in your repo in the 3-readings/1-textbooks folder.
+
+\smallskip
+
+    \begin{SCfigure}
+       \centering
+      \caption{ {\bf ISLR}: Gareth James, Daniela Witten, Trevor Hastie, Robert Tibshirani {\bf An Introduction to Statistical Learning: with Applications in R, Second Edition}, 2021  \cite{jamesIntroductionStatisticalLearning2021}}
+      \includegraphics[width=0.2\textwidth]{ISLR-2ndEd} % picture filename
+    \end{SCfigure}
+
+    \begin{SCfigure}
+      \centering
+      \caption{{\bf DLwR 2nd Ed.}: François Chollet, Tomasz Kalinowski, and J. J. Allaire, {\bf Deep Learning with R, 2nd Ed.}. 2022 \cite{francoischolletDeepLearning2018}}
+      \includegraphics[width=0.2\textwidth]%
+      {figs/Allaire-DLwithR-HI} % picture filename
+    \end{SCfigure}
+
+    \begin{SCfigure}
+      \centering
+      \caption{ {\bf DLGB}: Ian Goodfellow, Yoshua Bengio, and Aaron Courville {\bf Deep Learning, 2016}  \cite{goodfellowDeepLearning2016} }
+      \includegraphics[width=0.2\textwidth]{Goodfellow-Bengio-DeepLearning-2016.jpg} % picture filename
+\end{SCfigure}
+
+
+    \begin{SCfigure}
+      \centering
+      \caption{ {\bf ESL}: Trevor Hastie, Robert Tibshirani, Jerome Friedman {\bf The Elements of Statistical Learning: Data Mining, Inference, and Prediction, Second Edition, 2009}  \cite{hastieElementsStatisticalLearning2009} }
+      \includegraphics[width=0.2\textwidth]%
+      {figs/ESL.jpeg} % picture filename
+    \end{SCfigure}
+
+    \FloatBarrier
+
+
+
+%-------------------------------------------------------
+\section{Contact Information}
+
+  Prof. Roger H. French
+  \begin{itemize}
+    \item Slack is best: CWRU-DSCI Slack, DSCI 353 Class Channel, \url{https://cwru-dsci.slack.com/}
+  	\item Email: rxf131@case.edu,
+      \subitem Use DSCI353-353M-453 in the subject line
+  	\item @frenchrh on twitter
+  	\item White 536, and electronically.
+  	\item Office Phone 216 368 3655, Cell Phone 302 468 6667
+  \end{itemize}
+  TA: Kristen Hernandez
+  \begin{itemize}
+    \item DSCI Slack channel is best
+    \item Email: kjh125@case.edu
+      \subitem Use DSCI353-353M-453 in the subject line
+  	\item White 615, and electronically.
+  	\item Cell Phone:
+  \end{itemize}
+  TA: Will Oltjen
+  \begin{itemize}
+    \item DSCI Slack channel is best
+    \item Email: wco3@case.edu
+    \subitem Use DSCI353-353M-453 in the subject line
+    \item White 614, and electronically.
+    \item Cell Phone:
+  \end{itemize}
+
+
+%-------------------------------------------------------
+\section{Course Mechanics}
+
+  \subsection{Lectures}
+    Spring 2022: Tuesday, Thursday 11:30 am to 12:45 pm, In Nord 356 and On Zoom
+
+  \subsection{DSCI Class Slack Channel}
+
+    There is a Slack channel for this class
+
+    To join go to \href{"https://cwru-dsci.slack.com''}{https://cwru-dsci.slack.com} and sign up for an account, using your case.edu email address.
+
+    We use the Slack channel to share information, have discussions about topics from class, homework, etc.
+
+    If you have questions on homework, post them to Slack, and read other people's questions and answers, and answer questions you know how to.
+
+  \subsection{Office Hours and Consultations}
+    \begin{itemize}
+      \item Monday Office Hours: Mondays at 4pm on Zoom
+      \item Afternoon Office Hours: Wednesday at 4 PM on Zoom
+      \item Additional Consultations: After class or as needed.
+        \subitem Contact Prof. French, Kristen Hernandez, Will Oltjen
+        \subitem By Slack, email or in person.
+    \end{itemize}
+
+  \subsection{Class Repository Folder Structure}
+
+    Please browse within each folder to learn more about the intended purpose of each folder in the standard structure.
+
+    This folder structure has been designed to accommodate each type of file you may need to create and modify - please do not create additional folders in the structure, and please pay attention to naming conventions when creating new files.
+
+    Course Material Folders in this Course Repo
+    \begin{itemize}
+      \item 1-Assignments is where you will find the Lab Exercises and Exams
+      \item 2-Class contains daily class notes as *.Rmd and *.pdf files
+      \subitem These are split into a Foundations "f" and a Practicum "p" class notes
+      \item 3-Readings folder contains textbooks and readings for the course
+      \item 4-Syllabus contains the updated Course Syllabus
+      \item 5-SemProj contains information on the DSCI453 Semester Projects
+      \subitem The syllabus is updated throughout the course
+      \subitem The current syllabus is in 4-Syllabus folder
+    \end{itemize}
+
+    Your Working Data Analysis Folders
+    \begin{itemize}
+      \item Data contains course datasets and your datasets
+      \item Docs is where to write formal documentation as *.Rmd, *.tex files
+      \item Figs is the figures folder, accessible for both Scripts, Topics and Docs
+      \item Packages is where to build R or Python packages, if you project involves this
+      \item Scripts is where to write you scripts for data analysis
+      \item Topics is where to write reports and presentation for your data analysis
+    \end{itemize}
+
+  \subsection{License applied to course materials and some datasets used for data analysis}
+
+    Class materials
+    \begin{itemize}
+      \item License: This work is legally bound by the following software license: [CC-A-NS-SA-4.0][1]
+      \subitem Please see the LICENSE.txt file, in the root of this repository, for further details.
+    \end{itemize}
+
+    Assessment materials
+    \begin{itemize}
+      \item Homework Assignments, Project Assignments and Exams are all rights reserved.
+      \subitem They are NOT creative commons licensed, and can not be distributed.
+    \end{itemize}
+
+    Datasets derived from funded research projects
+    \begin{itemize}
+      \item During this class you may be working on a project that is part of a funded research award at Case Western Reserve University.
+      \item Information or material made available to you in connection with this funded research project, and coursework, data, results or other intellectual property you may develop in conjunction with this project, will be subject to Case Western Reserve’s Intellectual Property Policy as well as terms of the sponsored research agreement.
+      \item You acknowledge that you understand that you will not have ownership of intellectual property created in conjunction with the project.
+      \item Please sign the ``2201-DSCI-Acknowledgement-of-IP.pdf'' form.
+    \end{itemize}
+
+  \subsection{Lab Exercise Assignments}
+    All homework and Lab Exercise assignments are submitted electronically through canvas, uploading to the HW assignment page.
+
+    Filenames should contain DSCI353-353M-453, NAME, LE\#... e.g. DSCI353-453FrenchLE4.Rmd
+
+    Lab exercises need to be legible, organized and explain your thinking, process and results.
+    Credit all resources you drew upon, including texts, papers, peers.
+
+    Lab exercises are due by 11 am Tuesday, prior to the beginning of class.
+    Lab exercises will be graded on canvas and reviewed in class.
+
+
+  \subsection{Data-science Semester Project Report}
+    %For DSCI353-353M, the final data science research report should be written like a scientific paper and have the following types of sections.
+
+    \begin{itemize}
+    	\item{Title}
+    	\item{Author}
+    	\item{Author Affiliation}
+    	\item{ License: ideally CC-BY-SA 4.0  (but a license choice is yours)}
+    \end{itemize}
+
+    \begin{itemize}
+    	\item{Abstract}
+    	\item{Introduction}Modeling
+    	\item{Data Science Methods}
+    	\item{Exploratory Data Analysis}
+    	\item{Statistical Learning: Modeling \& Prediction(if appropriate)}
+    	\item{Discussion}
+    	\item{Conclusions}
+    	\item{Acknowledgements}
+    	\item{References, Citations}
+    \end{itemize}
+
+
+  \subsubsection{Abstract}
+    Summary of the nature, finding and meaning of your data analysis project.
+
+  \subsubsection{Introduction}
+    Background and motivation of the Data Science question.
+
+  \subsubsection{Data Science Methods}
+    To be applied (such as image processing, time-series analysis, spectral analysis etc.
+
+  \subsubsection{Exploratory Data Analysis}
+    Results and steps in the data analysis.
+
+  \subsubsection{Statistical Learning: Modeling \& Prediction}
+    If you analysis can accomplish some modeling, include it here.
+
+  \subsubsection{Discussion}
+    Discussion of the answers to the data science questions framed in the introduction.
+
+  \subsubsection{Conclusions}
+
+  \subsubsection{Acknowledgments}
+
+  \subsubsection{References}
+
+  \subsubsection{How to make your report}
+
+    The report is done as an Markdown document, which can be run/compiled to produce two versions of the report as a pdf.
+    One shows your R code and figures, and the other doesn't show R code, just your figures.
+
+    You'll then turn in a zip file (and leave a copy in your repo), with the dataset (if its not to huge, if it is large, can you make a smaller dataset), Rmd file that works, and the two pdf reports.
+    Just choose to do a pdf report, instead of a set of presentation slides.
+
+    The license choice of CC-BY-SA 4.0 is suggested so that others can use and build on your codes, in an open-source manner.
+    With more restrictive licenses, others won't be able to use your code in the future.
+
+%-------------------------------------------------------
+
+\section{Coding and Data Science Tools and Resources}
+
+  {\bf Open Data Science (ODS) Desktops} \\
+
+  You will not need to install software on your personal computers.
+
+  Instead you can install the Citrix Receiver \cite{citrix_citrix_2014} and then login to the CWRU CSE Portal. \cite{cse_portal_cwru_2014}.
+
+  The CSE Portal is located at \href{"https://cseportal.cwru.edu/vpn/index.html"}{https://cseportal.cwru.edu/vpn/index.html}    \\
+
+  {\bf Scripting, Coding and Writing} \\
+  And more resources for open science coding and scripting, including tools for code editing, code version control and languages.
+
+  {\bf R Statistics} \\
+    We will be using R in this class for homework and projects.
+    Its generally useful language for statistical analysis and data science.
+    \begin{itemize}
+    	\item \href{"http://www.r-project.org/index.html"}{The R Project for Statistical Computing}  \cite{r_r_2014} main website
+    	\item \href{"http://en.wikipedia.org/wiki/R_(programming_language)"}{R programming language}  R is a free software programming language and software environment for statistical computing and graphics.\cite{r_project_r_2014}
+    	\item \href{"http://www.rstudio.com/"}{Rstudio} provides popular open source and enterprise-ready professional software for the R statistical computing environment.  \cite{rstudio_rstudio_2014}
+    	\item \href{"https://google-styleguide.googlecode.com/svn/trunk/Rguide.xml"}{ Google's R Style Guide}
+    \end{itemize}
+
+  {\bf Rmarkdown} as a path to open access and reproducible science
+    \begin{itemize}
+    	\item \href{"http://rmarkdown.rstudio.com/"}{ R Markdown — Dynamic Documents for R.} We will be doing all our work using Rmarkdown this semester. Class presentations, homework, projects, all done in Rmd, as reproducible science projects, including data, code, and final output.
+    	\item \href{"http://shiny.rstudio.com/articles/rmarkdown.html"}{ Introduction to R Markdown. }
+    	\item \href{"http://www.rstudio.com/resources/cheatsheets/"}{ R Markdown Cheat Sheets. }
+    	\item \href{"http://rpubs.com/mansun_kuo/24330"}{ An Rmarkdown Introduction slide deck done from Rmarkdown and shared publicly on RPubs. }
+    \end{itemize}
+
+  {\bf R Statistics, more resources} \\
+      We will be using R in this class for homework and projects.
+      Its generally useful language for statistical analysis and data science.
+    \begin{itemize}
+    	\item \href{"http://www.r-project.org/index.html"}{The R Project for Statistical Computing}  \cite{r_r_2014} main website
+    	\item \href{"https://www.youtube.com/user/rdpeng/playlists"}{Roger Peng's Computing for Data Analysis introduction to R Statistics}. These are from a \href{"https://www.coursera.org/course/compdata"} {Coursera course} he does, with the same name. \cite{peng_computing_2014}
+      \item \href{"http://cran.r-project.org/doc/contrib/Torfs+Brauer-Short-R-Intro.pdf"}{A (very) short introduction to R}  \cite{torfs_very_2014}
+    	\item \href{"https://google-styleguide.googlecode.com/svn/trunk/Rguide.xml"}{ Google's R Style Guide}
+    	\item \href{"http://stat405.had.co.nz/r-style.html"}{ Hadley Wickham's R Style Guide}
+    	\item \href{"http://www.Rstudio.com/resources/cheatsheets/"}{ RStudio's R Cheatsheets for Rmarkdown and Data Wrangling}
+    	\item \href{"http://www.theresearchkitchen.com/blog"}{An Rmd slideshow Intro to R}
+    \end{itemize}
+
+  {\bf Open Source software and tools} \\
+    \begin{itemize}
+    	\item \href{"http://en.wikipedia.org/wiki/Portal:Free_software"}{FOSS (Free and Open Source Software)} is a copyleft approach to software which is hat is distributed in a manner that allows its users to run the software for any purpose, to redistribute copies of, and to examine, study, and modify, the source code. \cite{_portal:free_2014}
+    	\item \href{"http://www.vim.org/"}{vim (or Gvim the GUI version)} is a powerful text and code editor, that is universally available on all Linux and mac computers.\cite{_gvim_2014}   \href{"http://neovim.org/"}{NeoVim} is a new Gvim fork.\cite{_neovim_2014} It can be installed on windows computers, its available on the ODS VDIs.. \cite{_gvim_2014}
+    	\item \href{"http://en.wikipedia.org/wiki/Git_(software)"}{Git (Wikipedia)} is a distributed content versioning system that is very popular.  It enables collaborative code development and LaTeX writing projects.\cite{_git_2014-2}
+    	\item \href{"http://git-scm.com/"}{Git server software} is installed on each computer.\cite{_git_2014}
+    	\item  \href{"https://github.com/"}{GitHub} is a Git server website used for collaborative code development.\cite{_github_2014}
+    	\item  \href{"https://bitbucket.org/"}{BitBucket} is a Git server website used for collaborative code development. If you join with your case.edu email address, you get unlimited private repositories.\cite{_bitbucket:_2014}
+    	\item \href{"http://stackexchange.com/tour"}{Stack Exchange}  \cite{stack_exchange_stack_2014} Code Question and Answer Websites: covering R, Python, Mathematica, {LaTeX} and many other things, such as English or Spanish etc.
+    \end{itemize}
+
+  {\bf Python (is also used for Data Science in many cases.
+    But here we will focus on R first. }
+    \begin{itemize}
+    	\item \href{"https://en.wikipedia.org/wiki/Python_(programming_language)"}{Wikipedia: Python is a widely used general-purpose, high-level programming language. }  \cite{python_python_2014}
+    	\item \href{"https://www.python.org/"}{The Python main website. } \cite{python_python.org_2013}
+    	\item \href{"https://docs.python.org/2/tutorial/"}{The Python Tutorial — Python v2.7.8 documentation}  \cite{python_python_2014}
+    	\item \href{"http://docs.python-guide.org/en/latest/"}{The Hitchhikers Guide to Python}. This is an open access book being hosted on developed on \href{"https://github.com/"}{GitHub} and is located here \href{"https://github.com/vuvlab/python-guide"}{https://github.com/vuvlab/python-guide}. \cite{_hitchhikers_2014} \cite{_kennethreitz/python-guide_2014}
+    	\item \href{"http://www.numpy.org"}{NumPy is the fundamental package} \cite{numpy_numpy_2014} for scientific computing with Python.
+    	\item \href{"http://www.ctcms.nist.gov/fipy/"}{FiPy: Partial Differential Equations with Python} \cite{guyer_fipy:_2009}
+    	\item \href{"http://www.scipy.org/"}{SciPy is a python-based ecosystem}  \cite{scipy_scipy.org_2014} of open-source software for mathematics, science, and engineering.
+    	\item \href{"https://code.google.com/p/pythonxy/"}{PythonXY - Scientific-oriented Python Distribution} based on Qt and Spyder that runs on Windows.  \cite{pythonxy_pythonxy_2014}
+    	\item \href{"http://ipython.org/index.html"}{IPython Shell and Notebook}  \cite{ipython_ipython_2014}
+    	\item \href{"https://code.google.com/p/spyderlib/"}{Spyder is the Scientific PYthon Development Environment}  \cite{spyder_spyder_2014}
+    \end{itemize}
+
+  {\bf LaTeX is used for publication quality writing.
+    Its also the backend for Rmarkdown's pdf generation.
+    It lets you write professional looking papers, theses and books, along with presentations. }
+    \begin{itemize}
+    	\item \href{"http://www.tug.org/"}{LaTeX} is a program for writing documents, paper, journal articles, presentations and theses\cite{_tex_2014}.
+    	\item \href{"http://en.wikibooks.org/wiki/LaTeX"}{LaTeX - Wikibooks}, open books for an open world\cite{latex_latex_2014}.
+    	\item \href{"https://www.zotero.org/"}{Zotero Reference-Citation Manager, BibTeX Client}  \cite{zotero_zotero_2014}.
+    \end{itemize}
+
+%-------------------------------------------------------
+\section{Policies}
+
+  \subsection{Attendance}
+    You attendance is expected.
+    Some information is covered that is not in the text.
+    Student participation is an important part of the class.
+
+  \subsection{Readings}
+    Readings must be done, BEFORE the class, where they are assigned.
+    The reading assignment, is for the class with which it is listed.
+
+  \subsection{Homework Assignments}
+    Homeworks are due before noon on Monday after the week they are assigned.
+    A 50\% deduction will be assessed for submissions not received on Blackboard by noon on Monday.
+
+  \subsection{Collaboration and Citation}
+    Discussions and working together (except on exams) is acceptable and encouraged.
+    It is not ethical to do someone else's work or to have someone do your work.
+    You must cite all resources you used to work on your homework and projects.
+    Citations should be done at the end of the document.
+    These can be to books, Wikipedia and other web resources, and discussions with other students.
+
+  \subsection{Academic Integrity Policy}
+
+    All students in this course are expected to adhere to University standards of academic integrity. Cheating, plagiarism, misrepresentation, and other forms of academic dishonesty will not be tolerated.
+    This includes, but is not limited to, consulting with another person during an exam, turning in written work that was prepared by someone other than you, making minor modifications to the work of someone else and turning it in as your own, or engaging in misrepresentation in seeking a postponement or extension.
+    Ignorance will not be accepted as an excuse.
+    If you are not sure whether something you plan to submit would be considered either cheating or plagiarism, it is your responsibility to ask for clarification.
+
+    For complete information, please go to
+
+     \href{"http://bulletin.case.edu/undergraduatestudies/academicintegrity/"}{http://bulletin.case.edu/undergraduatestudies/academicintegrity/}.
+
+  \subsection{Disability Resources}
+
+    ESS Disability Resources is committed to assisting all CWRU students with disabilities by creating opportunities to take full advantage of the University's educational, academic, and residential programs.
+
+    For further information, please go to \href{"https://students.case.edu/academic/disability/''}{https://students.case.edu/academic/disability/}.
+
+%-------------------------------------------------------
+\section{Copyleft, References, Citations  \& Rubrics}
+
+
+  \subsection{CopyLeft}
+
+    Creative Commons plays an important role in openness and open science, open data, open source efforts.
+
+    This DSCI class \cite{french_dsci351-4511:_2015} is covered by a \href{"http://creativecommons.org/licenses/"}{Creative Commons}  \cite{commons_creative_2014} copyleft licenses.
+
+    The license we'll use for class materials, code and presentations is covered by  the "Attribution-ShareAlike 4.0 International" license, which is commonly called the CC BY-SA 4.0 license. \cite{_creative_2015}
+
+    More information on licensing open works, can be found on Wikipedia. \cite{commons_creative_2014-1}
+
+    \href{"http://www.gnu.org/copyleft/gpl.html"}{GNU} \cite{gnu_gnu.org_2014} is the developer of the \href{"http://en.wikipedia.org/wiki/GNU_General_Public_License"}{GPL License} \cite{gpl_gnu_2014}  that is used for many open source software projects, such as Linux.
+
+  \subsection{Software Licenses}
+
+    \begin{figure}[h]
+      \centering
+      \includegraphics[width=0.5\linewidth]{figs/Software_Categories_expanded}
+      \caption{Diagram of software under various licenses according to the FSF and their The Free Software Definition: on the left side "free software", on the right side "proprietary software". On both sides, and therefore mostly orthogonal, "free download" (Freeware). CC0, \href{https://commons.wikimedia.org/w/index.php?curid=46544815}{https://commons.wikimedia.org/w/index.php?curid=46544815}}
+      \label{fig:software-licenses}
+    \end{figure}
+
+    Good discussion of software licenses is available at \href{https://en.wikipedia.org/wiki/Software_license}{this Wikipedia article}.
+
+    And good comparison of different open-source software licenses is in \href{https://en.wikipedia.org/wiki/Comparison_of_free_and_open-source_software_licenses}{this Wikipedia article}.
+
+    Typically the \href{https://en.wikipedia.org/wiki/Apache_License}{Apache License of the Apache Software Foundation} or \href{https://en.wikipedia.org/wiki/Python_Software_Foundation_License}{Python Software Foundation} license are good choices for a `''permissive'' license.
+
+    But the Gnu General Public License \href{https://en.wikipedia.org/wiki/GNU_General_Public_License}{GPLv2 and GPLv3}  are ``stronger'' free and open source software licenses. This is the original free software license written by \href{https://en.wikipedia.org/wiki/Richard_Stallman}{Richard Stallman}  of the \href{https://en.wikipedia.org/wiki/Free_Software_Foundation}{Free Software Foundation} for the \href{https://en.wikipedia.org/wiki/GNU_Project}{GNU Project}.
+
+      \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.25\linewidth]{figs/Heckert_GNU_white}
+        \caption{GNU mascot, by Aurelio A. Heckert}
+        \label{fig:gnu-mascot}
+      \end{figure}
+
+
+  \pagebreak
+    \subsection{Scoring Rubric for Oral Presentation}
+    Presenter Name:   \\
+    Date: \\
+    Evaluator Name:
+
+      \subsubsection{Scientific/Technical Content \emph{(25 points)}, And Data Science Content \emph{(25 points)}}
+
+      Introduction:
+        \begin{itemize}   \itemsep0pt
+            \item{Defines background and importance of research.}
+            \item{States data analytics objective}
+            \item{Able to identify relevant questions.}
+        \end{itemize}
+
+      \noindent Body:
+        \begin{itemize}  \itemsep0pt
+            \item{Presenter has a data analytic goal (EDA, Modeling, Classification).}
+            \item{Addresses audience at an appropriate level (rigorous, but generally understandable to a scientifically-minded group).}
+            \item{Offers evidence of methods tried, what worked.}
+            \item{Describes methodology and implementation.}
+            \item{The talk is logical well organized.}
+        \end{itemize}
+
+      \noindent Conclusion:
+        \begin{itemize}  \itemsep0pt
+            \item{Summarizes major points of talk.}
+            \item{Summarizes potential weaknesses (if any) in findings.}
+            \item{Provides you with a “take-home” message.}
+        \end{itemize}
+
+      \subsubsection{Coding Elements \& Style, .R, .Rmd \emph{(25 points)}}
+        \begin{itemize}  \itemsep0pt
+            \item{Code author, license, versioning.}
+            \item{Code styling, identing, commenting.}
+            \item{Is it reproducible code, and well structured data.}
+            \item{Cross-platform, cross-computer code: relative paths, or absolute paths}
+            \item{Making and using functions.}
+            \item{Use of interesting packages}
+        \end{itemize}
+
+      \subsubsection{Presentation Quality, Clarity, Style (25 pts)}
+        \begin{itemize}  \itemsep0pt
+            \item{Graphs/figures are clear and understandable.}
+            \item{The text is readable and clear.}
+            \item{Audio/Visual components support the main points of the talk.}
+            \item{Appropriate referencing of data that is/was not generated by presenter}
+        \end{itemize}
+
+      \subsubsection{General  Comments}
+        \begin{flushright}
+         Final Score:  ..............  / 100
+        \end{flushright}
+
+
+
+%-----------------------------------------
+\pagebreak
+
+
+\section{Setting up your R data science computer}
+
+To setup and install the software for an R Open Data Science workstation, here's how. \\
+
+Note that the ``R standard packages are listed under the ``For Windows'' section in subsubsection\ref{subsubsec:rstandpack}.  \\
+
+\subsection{For Windows}
+
+In Windows we are allowed to use spaces in filenames, however, most other systems does not support that.
+To avoid conflicts or troubles, we suggest using \href{https://sanaulla.info/2008/06/25/camelcase-notation-naming-convention-for-programming-languages/}{camelBack} naming convention or use "-" or "\_" to replace spaces.
+
+\subsubsection{LaTeX}
+
+\LaTeX~is a document preparation system that is widely used in the academia for producing scientific documents.
+You will need to install two softwares,  Miktex and TeXstudio. \\
+\begin{itemize}
+  \item Download and run the Basic MiKTeX Installer.
+  MiKTeX has the ability to install missing packages automatically, i.e., this installer is suitable for computers connected to the Internet.
+  Before you run the installer, you can check the \href{https://miktex.org/kb/prerequisites-2-9}{prerequisites}.
+  The installer is available on the \href{https://miktex.org/download}{download} page.
+  You start it with a double-click on the downloaded file.
+  \item Read the Copying Conditions carefully and click "I accept the MiKTeX copying conditions", the click "Next", as demonstrated below.
+
+  \begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figs/basic-miktex-license-2-9}
+    \caption{}
+    \label{fig:basic-miktex-license-2-9}
+  \end{figure}
+  \item You have the Option to create a shared MiKTeX installation.
+  Click "Anyone who uses this Computer (all users), if you want to install MiKTeX for all users.
+  Click "Only for ...", if you want to install MiKTeX for yourself only.
+  When you have made your decision, click "Next" to go to the next page.
+
+  \begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figs/basic-miktex-shared-2-9}
+    \caption{}
+    \label{fig:basic-miktex-shared-2-9}
+  \end{figure}
+
+  \pagebreak
+
+  \item You can specify the directory where you want to install your Miktex.
+  Click "Browse", if you want to specify another (than the default) directory location.
+  Click "Next", to go to the next page.
+
+  \begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figs/basic-miktex-installdir-2-9}
+    \caption{}
+    \label{fig:basic-miktex-installdir-2-9}
+  \end{figure}
+  \pagebreak
+  \item The installer allows you to set the preferred paper size(usually it's A4 in China and letter size in the US).
+  You also have the option to change the default behavior of the integrated package manager for the case where a required package is missing.
+  Select "Yes", to make the package manager is always allowed to install missing packages.
+  All these configurations can be changed later.
+
+  Click "Next", to go to the next page.
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figs/MikTex1.png}
+    \caption{}
+    \label{fig:basic-miktex-settings-2-9}
+  \end{figure}
+  \item Before the actual installation process begins, you get a chance to review your decisions.
+  If you are satisfied with the settings, then click "Start" to start the actual installation.
+  \item The installation will take a few minutes.
+  The progress bar shows an approximate percentage of completion.
+  When the installation has finished, you can click "Next" to open the last page.
+  \item MiKTeX is now installed.
+  Click "Close", to close the installer.
+  \item In order to make use of latex the easiest way is to use a integrated development editor (IDE).
+  \textbf{TeXstudio} is an free package that allows you to edit tex documents, compile and view them, it has syntax highlighting, auto completion, in line spell and grammar checker and much more.
+  You can find the downloads page \href{https://www.texstudio.org/}{here} and click on \textbf{download now}.
+  \item Once downloaded, run and start the installer.
+  \item Accept all the default conditions, and start up TeXstudio to finish.
+  \item If you need instructions on how to start using LaTeX, here are some \href{https://en.wikibooks.org/wiki/LaTeX}{tutorials}.
+\end{itemize}
+\pagebreak
+\subsubsection{Git}
+
+\textbf{Git Bash} is command line programs which allow you to interface with the underlying git program.
+Bash is a Linux-based command line, which has been ported over to Windows.
+\begin{itemize}
+  \item  Download latest version of Git Bash on the \href{http://gitforwindows.org/}{official website}.
+  \item Once Git Bash Windows installer is downloaded, run the executable file and follow the setups:
+  \item Agree to the GNU General Public License and click "Next".
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.58\linewidth]{figs/GitBash1}
+    \caption{}
+    \label{fig:gitbash1}
+  \end{figure}
+
+  \item Select the components you want to install and click Next.
+  We suggest that you should unselect Windows Explorer integration.
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.55\linewidth]{figs/git2}
+    \caption{}
+    \label{fig:gitbash3}
+  \end{figure}
+
+  \pagebreak
+
+  \item Set default editor to Vim(which is the default option).
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.65\linewidth]{figs/git1}
+    \caption{}
+    \label{fig:gitbash4}
+  \end{figure}
+
+  \item Choose default initial branch name.
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figs/GitBash14_master}
+    \caption{}
+    \label{fig:gitbash14_master}
+  \end{figure}
+
+  \pagebreak
+
+  \item We suggest that you use the default option, which is "Use Git from Git Bash only".
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figs/GitBash5}
+    \caption{}
+    \label{fig:gitbash5}
+  \end{figure}
+
+  \item Select which SSH client program to use.
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figs/GitBash6}
+    \caption{}
+    \label{fig:gitbash6}
+  \end{figure}
+
+  \pagebreak
+
+  \item Select which SSL/TLS library would you like to use for HTTPS connection and click Next.
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figs/GitBash6b}
+    \caption{}
+    \label{fig:gitbash6b}
+  \end{figure}
+
+  \item Select, how should Git treat line endings in text files and click Next.
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figs/GitBash7}
+    \caption{}
+    \label{fig:gitbash7}
+  \end{figure}
+
+  \pagebreak
+
+  \item Select the terminal you want to use for Git Bash.
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figs/GitBash8}
+    \caption{}
+    \label{fig:gitbash8}
+  \end{figure}
+
+  \item Select the default behavior of 'git pull'
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figs/GitBash12}
+    \caption{}
+    \label{fig:gitbash12}
+  \end{figure}
+
+  \pagebreak
+
+  \item Select the features you want to enable and click "Next".
+  We suggest that you unselect "Enable Git Credential Manager".
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figs/GitBash13}
+    \caption{}
+    \label{fig:gitbash13}
+  \end{figure}
+
+  \item Unselect the experimental options.
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figs/GitBash14}
+    \caption{}
+    \label{fig:gitbash14}
+  \end{figure}
+
+  \item Please wait while Setup wizard installs Git on your computer and click "Finish" to exit the Setup wizard.
+
+  \item After Git Bash installation finishes you will ready to use the Linux command on a windows machine.
+  Double click on below icon to start the Git Bash.
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figs/Launch-Git-Bash.png}
+    \caption{}
+    \label{fig:launchgitbash}
+  \end{figure}
+
+  \item Set up user name and email in Git.
+
+  \begin{lstlisting}
+    git config --global user.name "yourusername"
+    git config --global user.email "youremail@website.com"
+    git config --global color.ui auto
+  \end{lstlisting}
+
+  \item Here are some common commands you can use in git:
+  \\
+  \\
+  pwd -- present working directory\\
+  cd -- change directory\\
+  ls -- list files in current working directory\\
+  mkdir -- make new directory\\
+
+  \item If you want to learn more about how git works (pull request, merge and more), you can read some \href{https://www.atlassian.com/git}{tutorials}.
+
+\end{itemize}
+
+\subsubsection{R}
+R is a free programming language and software environment for statistical computing and graphics that is supported by the R Foundation for Statistical Computing, while RStudio is a free and open-source integrated development environment for R.
+\begin{itemize}
+  \item To \href{https://cran.r-project.org/}{download R}, please choose your "install R for Windows" and then choose base R for a complete installation.
+  \item Double click on the installer, and follow the instructions.
+  \item Users of Vista/Windows 7/8/Server 2008/2012 installing for a single user using an account with administrator rights should consider installing into a non-system area (such as C:\textbackslash R).
+  \item Please try to avoid spaces or any special characters other than English letters and numbers in your installation directory, which may cause error later.
+  \item After installing R, you can download \textbf{Rstudio} \href{https://www.rstudio.com/products/rstudio/download/}{here}, and choose the RStudio Desktop Open Source License version (the left most one).
+  \item Run the installer and follow the installation instructions.
+  \item Again, please try to avoid spaces or any special characters other than English letters and numbers in your installation directory.
+  \item Rstudio have some built-in packages such as tidyverse and ggplot2, but if you are interested in building your own R packages, you can \href{https://cran.r-project.org/bin/windows/Rtools/}{download \textbf{Rtools}}.
+  Please choose the latest version, as the older versions are not compatible with latest release of R.
+  \item Run the installer, and accept the defaults throughout.
+  \item Confirm and finish the installation.
+  \item Once the Rtools installation completes, open RStudio and go to Profile--Global options--Code and change the code editing options as follows:
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\linewidth]{figs/softwrapRsourcefile}
+    \caption{}
+    \label{fig:softwraprsourcefile}
+  \end{figure}
+  \pagebreak
+  %	\item To install devtools, use
+  %	\begin{lstlisting}
+    %	install.packages("devtools")
+    %	\end{lstlisting}
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\linewidth]{figs/highlightRfunctioncall}
+    \caption{}
+    \label{fig:highlightrfunctioncall}
+  \end{figure}
+  \pagebreak
+  \item You can also change your appearance style in Global Options:
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\linewidth]{figs/chaos}
+    \caption{}
+    \label{fig:chaos}
+  \end{figure}
+\end{itemize}
+
+
+\subsubsection{R Standard Packages for Win,Lin,Mac}\label{subsubsec:rstandpack}
+
+Here are the standard packages you should install.
+
+\begin{itemize}
+  \item Here is the list of standard packages that we suggest you install.
+  If a warning comes up asking whether you want to install packages from the source, answer "y" for yes. \\
+
+  \item Alphabetical packages: \\
+    netSEM
+
+    acepack
+
+    adabag
+
+    akima
+
+    Amelia
+
+    AmesHousing
+
+    animation
+
+    anytime
+
+    apache.sedona
+
+    arrow
+
+    arsenal
+
+    arules
+
+    askpass
+
+    astsa
+
+    available
+
+    babynames
+
+    backports
+
+    baseline
+
+    BayesFactor
+
+    bayesSurv
+
+    bcpa
+
+    bda
+
+    BiocManager
+
+    birk
+
+    bit64
+
+    blavaan
+
+    blogdown
+
+    BMA
+
+    bookdown
+
+    bookdownplus
+
+    BoomSpikeSlab
+
+    boot
+
+    bootstrap
+
+    breakDown
+
+    breakpoint
+
+    brms
+
+    broom
+
+    bsts
+
+    C50
+
+    Cairo
+
+    callr
+
+    calendR
+
+    car
+
+    carData
+
+    caret
+
+    cartogram
+
+    caretEnsemble
+
+    CausalImpact
+
+    cdlTools
+
+    centiserve
+
+    cgwtools
+
+    changepoint
+
+    changepoint.np
+
+    ChemoSpec
+
+    circlize
+
+    Ckmeans.1d.dp
+
+    class
+
+    ClimClass
+
+    cloudml
+
+    cluster.datasets
+
+    coda
+
+    CodeDepends
+
+    colormap
+
+    CORElearn
+
+    corrgram
+
+    corrplot
+
+    cowplot
+
+    cowsay
+
+    crayon
+
+    cpca
+
+    cranlogs
+
+    ctv
+
+    CVXR
+
+    datapasta
+
+    dataRetrieval
+
+    data.table
+
+    data.tree
+
+    dataMaid
+
+    DBI
+
+    DBItest
+
+    dbplyr
+
+    dbscan
+
+    ddiv
+
+    DescTools
+
+    devtools
+
+    DiagrammeR
+
+    DiagrammeRsvg
+
+    dice
+
+    dichromat
+
+    digest
+
+    directlabels
+
+    dlstats
+
+    doFuture
+
+    doParallel
+
+    dplyr
+
+    drake
+
+    drumr
+
+    lidR
+
+    DT
+
+    dtwclust
+
+    e1071
+
+    easyNCDF
+
+    Ecdat
+
+    eemR
+
+    effects
+
+    elevatr
+
+    epiDisplay
+
+    equatiomatic
+
+    exifr
+
+    extrafont
+
+    fable
+
+    fabletools
+
+    factoextra
+
+    FAIRmaterials
+
+    fastcluster
+
+    fastDummies
+
+    feasts
+
+    feather
+
+    flexclust
+
+    flextable
+
+    flipbookr
+
+    forecast
+
+    foreach
+
+    formattable
+
+    fpp2
+
+    fpp3
+
+    fmsb
+
+    fun
+
+    fuzzyjoin
+
+    gam
+
+    gapminder
+
+    gbm
+
+    gclus
+
+    geojson
+
+    geojsonio
+
+    geoR
+
+    GGally
+
+    gganimate
+
+    ggalluvial
+
+    ggbump
+
+    ggcorrplot
+
+    ggdag
+
+    ggdark
+
+    ggdendro
+
+    ggdist
+
+    ggeffects
+
+    ggExtra
+
+    ggenealogy
+
+    ggforce
+
+    ggfortify
+
+    gghighlight
+
+    ggplot2movies
+
+    ggsci
+
+    ggsoccer
+
+    ggstatsplot
+
+    ggiraph
+
+    gglasso
+
+    ggm
+
+    ggmap
+
+    ggnetwork
+
+    ggnewscale
+
+    ggplot2
+
+    ggpubr
+
+    ggQC
+
+    ggRandomForests
+
+    ggraph
+
+    ggraph
+
+    ggrepel
+
+    ggridges
+
+    ggrepel
+
+    ggseas
+
+    ggsignif
+
+    ggspectra
+
+    ggstance
+
+    ggstream
+
+    ggtern
+
+    ggthemes
+
+    ggTimeSeries
+
+    ggvis
+
+    ggvenn
+
+    ggvoronoi
+
+    ggdark
+
+    ggalt
+
+    ggraph
+
+    ggpmisc
+
+    ggnetwork
+
+    ggTimeSeries
+
+    ggstance
+
+    ggbeeswarm
+
+    ggridges
+
+    glmnet
+
+    glmnetUtils
+
+    gmodels
+
+    googlesheets4
+
+    googleVis
+
+    GPArotation
+
+    graphlayouts
+
+    gridBase
+
+    gridExtra
+
+    gridGraphics
+
+    gsl
+
+    gstat
+
+    gt
+
+    gtrendsR
+
+    gWidgets2
+
+    hdf5r
+
+    hdpca
+
+    heatmaply
+
+    here
+
+    hexbin
+
+    highcharter
+
+    HH
+
+    Hmisc
+
+    hrbrthemes
+
+    httr
+
+    htmlwidgets
+
+    htmltools
+
+    huxtable
+
+    hyperSpec
+
+    igraph
+
+    igraphdata
+
+    igraphinshiny
+
+    imager
+
+    infer
+
+    ipred
+
+    IQCC
+
+    IRdisplay
+
+    IRkernel
+
+    ISLR
+
+    ISLR2
+
+    itertools
+
+    janitor
+
+    jsonld
+
+    jsonlite
+
+    jsonvalidate
+
+    jtools
+
+    kableExtra
+
+    keras
+
+    kerasR
+
+    kernlab
+
+    keyring
+
+    kgc
+
+    klaR
+
+    knitcitations
+
+    knitr
+
+    Lahman
+
+    lars
+
+    latex2exp
+
+    lavaan
+
+    lavaan.survey
+
+    leaps
+
+    learningr
+
+    learnr
+
+    learnrbook
+
+    learNN
+
+    lime
+
+    lintr
+
+    lme4
+
+    lmerTest
+
+    lobstr
+
+    logitnorm
+
+    magick
+
+    magickGUI
+
+    magrittr
+
+    mapdata
+
+    mapproj
+
+    maps
+
+    markdown
+
+    maptools
+
+    mapSpain
+
+    mapview
+
+    MASS
+
+    Matrix
+
+    MatrixModels
+
+    matrixStats
+
+    markovchain
+
+    mcmc
+
+    MCMCglmm
+
+    meltr
+
+    metRology
+
+    meme
+
+    Metrics
+
+    mgcv
+
+    mice
+
+    minpack.lm
+
+    mixtools
+
+    mlbench
+
+    MLmetrics
+
+    mlr
+
+    mnormt
+
+    moments
+
+    mosaicData
+
+    MTS
+
+    multiway
+
+    multicolor
+
+    naniar
+
+    NbClust
+
+    ncdf4
+
+    networkD3
+
+    neuralnet
+
+    NeuralNetTools
+
+    nFactors
+
+    NLP
+
+    NMF
+
+    nnet
+
+    nycflights13
+
+    odbc
+
+    olsrr
+
+    onehot
+
+    OneR
+
+    openair
+
+    openintro
+
+    OpenMx
+
+    OpenStreetMap
+
+    operator.tools
+
+    optimx
+
+    ordinal
+
+    osmdata
+
+    OSMscale
+
+    oysteR
+
+    ozmaps
+
+    packageRank
+
+    packHV
+
+    packrat
+
+    pacman
+
+    palmerpenguins
+
+    packcircles
+
+    pastecs
+
+    patchwork
+
+    pca3d
+
+    PCAmixdata
+
+    performance
+
+    PerformanceAnalytics
+
+    pins
+
+    pipeR
+
+    pixiedust
+
+    paletteer
+
+    plot3D
+
+    plotmo
+
+    plotKML
+
+    plotly
+
+    plotrix
+
+    plotROC
+
+    pls
+
+    plumber
+
+    plyr
+
+    png
+
+    pool
+
+    pracma
+
+    prodlim
+
+    pROC
+
+    processx
+
+    prophet
+
+    profvis
+
+    propagate
+
+    proxy
+
+    pryr
+
+    psych
+
+    purrr
+
+    PVplr
+
+    pwr
+
+    qcc
+
+    qqplotr
+
+    qtlmt
+
+    quantmod
+
+    r2d3
+
+    ragg
+
+    randomcoloR
+
+    randomForest
+
+    randomForestExplainer
+
+    randomForestSRC
+
+    randomNames
+
+    ranger
+
+    raster
+
+    rasterVis
+
+    rayshader
+
+    RColorBrewer
+
+    rcompanion
+
+    Rcpp
+
+    RCurl
+
+    Rdice
+
+    Rdpack
+
+    readr
+
+    recipes
+
+    RefManageR
+
+    regclass
+
+    relaimpo
+
+    remotes
+
+    repr
+
+    reshape
+
+    reshape2
+
+    reactable
+
+    reticulate
+
+    revealjs
+
+    Rfast
+
+    rgdal
+
+    rgexf
+
+    rgeos
+
+    rgl
+
+    RgoogleMaps
+
+    rhub
+
+    rJava
+
+    rjson
+
+    RJSONIO
+
+    rlang
+
+    rlist
+
+    RLRsim
+
+    rmapshaper
+
+    rmarkdown
+
+    Rmisc
+
+    Rmpi
+
+    rms
+
+    RMySQL
+
+    RNiftyReg
+
+    RNHANES
+
+    roxygen2
+
+    rockchalk
+
+    ROCR
+
+    rpart
+
+    rpart.plot
+
+    rpf
+
+    rprojroot
+
+    rsample
+
+    RSNNS
+
+    rstan
+
+    rstanarm
+
+    rsvg
+
+    RTextTools
+
+    rticles
+
+    rTorch
+
+    Rtsne
+
+    rtweet
+
+    RUnit
+
+    rvest
+
+    rworldmap
+
+    rworldxtra
+
+    scatterplot3d
+
+    scico
+
+    scrypt
+
+    seasonal
+
+    segmented
+
+    sem
+
+    semPlot
+
+    sf
+
+    showtext
+
+    shiny
+
+    shinydashboard
+
+    shinyjs
+
+    shinystan
+
+    shinytest
+
+    shinythemes
+
+    signal
+
+    simpleNeural
+
+    SixSigma
+
+    sjstats
+
+    skimr
+
+    slackr
+
+    sloop
+
+    sp
+
+    spacetime
+
+    spacyr
+
+    sparklyr
+
+    sparkline
+
+    sparktf
+
+    spc
+
+    spectacles
+
+    spelling
+
+    sqldf
+
+    sqliter
+
+    staRdom
+
+    stargazer
+
+    stars
+
+    stationaRy
+
+    statsr
+
+    stlplus
+
+    stopwords
+
+    StreamMetabolism
+
+    stringi
+
+    stringr
+
+    styler
+
+    suncalc
+
+    SunsVoc
+
+    sunburstR
+
+    survival
+
+    survivalAnalysis
+
+    survivalMPL
+
+    survivalROC
+
+    survivalsvm
+
+    survminer
+
+    svglite
+
+    svUnit
+
+    SwarmSVM
+
+    synthpop
+
+    targets
+
+    TeachingDemos
+
+    TeachingSampling
+
+    tensorflow
+
+    terra
+
+    testthat
+
+    textdata
+
+    tfdatasets
+
+    tfdeploy
+
+    tfestimators
+
+    tfruns
+
+    tibble
+
+    tictoc
+
+    tidygraph
+
+    tidymodels
+
+    tidyposterior
+
+    tidyr
+
+    tidytext
+
+    tidyverse
+
+    timeDate
+
+    tinytex
+
+    tipr
+
+    tm
+
+    tmap
+
+    tmaptools
+
+    torch
+
+    torchdatasets
+
+    torchvision
+
+    transformr
+
+    tree
+
+    treemap
+
+    treemapify
+
+    tsibble
+
+    TSclust
+
+    TSstudio
+
+    tweenr
+
+    usmap
+
+    V8
+
+    validate
+
+    vcd
+
+    vioplot
+
+    viridis
+
+    visNetwork
+
+    vtreat
+
+    waterfalls
+
+    WaveletComp
+
+    wavelets
+
+    wavethresh
+
+    weathermetrics
+
+    webshot
+
+    WikidataQueryServiceR
+
+    WikidataR
+
+    withr
+
+    WGCNA
+
+    WDI
+
+    wordcloud
+
+    xaringan
+
+    xkcd
+
+    xgboost
+
+    XLConnect
+
+    XML
+
+    xtable
+
+    xts
+
+    yardstick
+
+    zeallot
+
+    zoo
+  \\
+
+  You can go the the highlighted tab in below picture and install/upgrade you packages here.
+  To install, simply paste the list of packages in the window.
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figs/installPackages}
+    \caption{}
+    \label{fig:installpackages}
+  \end{figure}
+
+  To upgrade your packages, select all packages and press "Install Updates"
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figs/upgradePackages}
+    \caption{}
+    \label{fig:upgradepackages}
+  \end{figure}
+
+\end{itemize}
+
+\subsubsection{GVim}
+
+GVim offers a graphic user interface for the editor \textbf{Vim}.
+This is a powerful editor but could be a little bit hard to use.
+\begin{itemize}
+  \item You can download Vim from their \href{https://vim.sourceforge.io/download.php}{download page}.
+  For Windows system, click on "\href{https://vim.sourceforge.io/download.php#pc}{PC: MS-DOS and MS-Windows}", and download "gvim80.exe".
+  \item Open the installer and accept the default conditions.
+\end{itemize}
+
+\subsection{For Linux}
+
+\subsubsection{LaTeX}
+
+TeX Live is an easy way to get up and running with the TeX document production system, it is available on most Unix-like systems, but it is recommended to use MacTeX if you are using MacOSX.
+To install TeXLive and TeXstudio, run the following code:
+\begin{lstlisting}
+  sudo apt-get install texlive-full texworks texstudio
+\end{lstlisting}
+\subsubsection{Git}
+To install Git, run the following code:
+\begin{lstlisting}
+  sudo apt-get install git
+\end{lstlisting}
+
+\subsubsection{R}
+
+\begin{itemize}
+
+  \item Install from CRAN:
+
+  \begin{lstlisting}
+    ## This sets up the CRAN repository in your Linux Package Manager
+    sudo echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" |
+    sudo tee -a /etc/apt/sources.list
+    gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
+    gpg -a --export E084DAB9 | sudo apt-key add -
+    sudo apt-get update
+    sudo apt-get install r-base r-base-dev
+    ## extra linux packages needed by
+    sudo apt-get install r-cran-xml pkg-config libxml2-dev
+    libtiff5-dev fftw3 fftw3-dev  tmux
+    cifs-utils openssh-server openssh-client tree htop
+    gdebi curl libcurl4-openssl-dev libssl-dev ffmpeg
+
+  \end{lstlisting}
+
+  \pagebreak
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figs/linux_r_install_gpgkeyserver}
+    \caption{}
+    \label{fig:linux_install_gdgpackages}
+  \end{figure}
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figs/linux_r_install_r_base}
+    \caption{}
+    \label{fig:linux_install_base_r}
+  \end{figure}
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figs/linux_r_install_packages}
+    \caption{}
+    \label{fig:linux_install_packages}
+  \end{figure}
+
+  \pagebreak
+
+  \item Before installing, you should \href{https://www.rstudio.com/products/rstudio/download/}{check the latest version} of RStudio, and change the version number in the code below accordingly.
+  Install RStudio:
+
+  \begin{lstlisting}
+
+    ## Update to the latest version number in the lines below
+    wget https://download1.rstudio.org/rstudio-1.4.1717-amd64.deb
+    sudo gdebi -n rstudio-1.4.1717-amd64.deb
+    rm rstudio-1.4.1717-amd64.deb
+
+  \end{lstlisting}
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figs/linux_r_install_rstudio_download}
+    \caption{}
+    \label{fig:linux_install_packages_rstudio_dl}
+  \end{figure}
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figs/linux_r_install_rstudio_install}
+    \caption{}
+    \label{fig:linux_install_packages_rstudio_install}
+  \end{figure}
+
+
+
+
+\end{itemize}
+
+\subsection{For Mac}
+
+\subsubsection{Homebrew}
+
+Homebrew is a package manager for Mac OS.
+To install Homebrew, paste and run the following command in terminal:
+\begin{lstlisting}
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/
+  install/master/install)"
+\end{lstlisting}
+You can read more about Homebrew \href{https://brew.sh/}{here}.
+
+\subsubsection{XQuartz}
+
+To correctly set up your linux environment, you should also install XQuartz.
+XQuartz is Apple Inc.'s version of the X server, a component of the X Window System for macOS.
+You can \href{https://www.xquartz.org/}{download} and install the latest version of XQuartz.
+
+\subsubsection{LaTeX}
+
+To install LaTeX on Mac, you need to install MacTeX and TeXstudio.
+\begin{itemize}
+  \item The current distribution as of today (\today)is MacTeX-2017.
+  This distribution requires Mac OS 10.10, Yosemite, or higher and runs on Intel processors.
+  To download, click \href{http://www.tug.org/mactex/mactex-download.html}{MacTeX Download}.
+  \item After downloading, double click on the MacTeX.pkg to install.
+  Follow the straightforward instructions.
+  Installation on a recent Macintosh takes four to six minutes.
+  \item At the end of installation, the installer will report "Success." But sometimes, the installer puts up a dialog saying "Verifying..." and then the install hangs.
+  In all cases known to us, rebooting the Macintosh fixes this problem.
+  After the reboot, install again.
+  \item Now you can start installing TeXstudio.
+  You can find the corresponding installer on the \href{https://www.texstudio.org/}{TeXstudio website}.
+  \item Because the developers of TeXstudio do not have an Apple Developer Account, OS X may complain about an unidentified developer and deny opening TXS.
+  In that case, open the context menu on the TXS icon (Ctrl + Click) and select open.
+\end{itemize}
+
+\subsubsection{Git}
+
+There are several ways to install Git on a Mac.
+In fact, if you've installed XCode (or it's Command Line Tools), Git may already be installed.
+To find out, open a terminal and enter git --version.
+
+Apple actually maintain and ship their own fork of Git, but it tends to lag behind mainstream Git by several major versions.
+You may want to install a newer version of Git using the method below:
+\begin{itemize}
+  \item Download the latest Git for \href{https://git-scm.com/download/mac}{Mac installer}.
+  \item Follow the prompts to install Git.
+  \item Open a terminal and verify the installation was successful by typing git --version.
+  \item Configure your Git username and email using the following commands, replacing "yourusername" with your own.
+  These details will be associated with any commits that you create:
+  \begin{lstlisting}
+    $ git config --global user.name "yourusername"
+    $ git config --global user.email "youremail@website.com"
+  \end{lstlisting}
+\end{itemize}
+
+\subsubsection{R}
+
+\begin{itemize}
+  \item Download R from \href{http://cran.us.r-project.org/}{CRAN} and click "Download R for (Mac) OS X".
+  \item Follow the instructions and install R.
+  \item Download the latest RStudio from their \href{https://www.rstudio.com/products/rstudio/download/}{website}.
+  Open the installer and follow the instructions.
+\end{itemize}
+
+
+
+%-----------------------------------------
+
+
+\bibliographystyle{ieeetr}
+\bibliography{dsci}
+%\bibliography{IEEEabrv, EMSE343-443}
+
+\end{document}

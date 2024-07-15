@@ -1,0 +1,33 @@
+# If you want to create a pull request into the master branch
+  Make sure you are in your feature branch!
+  git pull . master
+  git push origin <feature branch name>
+  
+# Go to bitbucket.org and create a pull request. 
+  Remember to add a comment with the name of your file and/or high level description about what has been added/changed/removed.
+
+# If you want to bring your feature branch up to date with `master`.
+  git pull . master
+
+# If you want to pull all new remote branches others have made, and you don't have locally yet.
+  git pull --all :/
+
+#If you want to make a new branch from master, and switch to that new branch.
+  git checkout master
+  git branch yourbranchname
+  git checkout yourbranchname
+
+# If you want to push up a new local branch to a remote repository so others can see it.
+  git push -u origin yourbranchnamehere
+
+If you want to pull down a new remote branch to a local repository so you can see it.
+  git fetch origin
+  git branch -a
+  git checkout -b new-local-branch-name origin/remote-branch-name
+
+# If you want to pull just one file with git checkout from a different remote repository, and then remove the remote.
+  git remote add upstream https://nrw16@bitbucket.org/cwrusdle/pvcell.git
+  git fetch upstream
+  git checkout upstream/master -- .gitignore
+  git commit -m 'pulled in modified .gitignore file'
+  git remote rm upstream

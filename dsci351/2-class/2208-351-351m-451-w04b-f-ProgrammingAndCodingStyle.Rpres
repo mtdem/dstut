@@ -1,0 +1,375 @@
+Developing Good Style
+========================================================
+author: Paul W. Leu, Roger H. French
+date: `r format(Sys.time(), '%d %B, %Y')`
+transition: rotate
+transition-speed: fast
+incremental: false
+
+Ultimate Goal
+========================================================
+
+A working solution is only half the challenge.  
+
+Want to 
+- construct an elegant and well-engineered solution
+- design and organize your code in a readable, well-engineered whole.  
+
+No one "right" way to do things or an easy-to-follow checklist of do's and dont's`
+
+Code Planning 
+========================================================
+"The sooner you start to code, the longer the program will take" - Roy Calrson, University of Wisconsin
+
+- take time to plan out your code before actually writing
+- use pseudocode to create a step-by-step outline of your code
+- then transcribe that pseudocode into your program
+
+Why Readable Code?
+========================================================
+
+“Any fool can write code that a computer can understand. Good programmers write code that humans can understand.” - Martin Fowler
+
+- graders can evaluate (in this class)
+- so you can debug your code easier
+- so you can modify and make changes later 
+- work with other programmers on a team
+
+Spaghetti Code
+========================================================
+
+- tangled and difficult-to-follow
+- difficult-to-maintain
+
+
+Avoid Spaghetti 
+========================================================
+
+```{r, out.width = "550px", echo=FALSE}
+   knitr::include_graphics('./figs/spaghetti_meme.jpg')
+```
+
+Code Smell 
+========================================================
+
+- Not bugs
+- Fragile or weak code
+- Difficult to modify
+- Risk of bugs in the future
+
+Code Smell 
+========================================================
+
+```{r, out.width = "500px", echo=FALSE}
+   knitr::include_graphics('./figs/codeSmell.jpg')
+```
+
+
+
+
+RStudio Diagnostics
+========================================================
+
+Diagnostics can be enabled and set within 
+```Global Options -> Code -> Diagnostics editing pane```
+
+Comments
+========================================================
+
+- Provide information that is difficult to get from reading the code
+  - **Overview**. Goals and requirements of the program
+  - **Data**.  How is data stored.  Units
+  - **Design Decisions**. What strategies were tried and rejected
+  - **Error Handling**.  How are error conditions handled.  What assumptions are violated
+  - **Clever Code**. Explain inner wworkings.
+  - **Future Plans**.  Things you might want to do to modify in the future.
+  - **And More**
+
+When to Comment?
+========================================================
+
+- Before and After
+- Before: Put pseudocode into comments. Help you plan things out
+- After: Check to make sure it is readable.  Reflect on the code.  
+
+Overcommenting?
+========================================================
+
+- Do not put in useless comments.
+```{r}
+x <- 3 + 5  # assign 3 plus 5 to x
+```
+- Audience is someone who is literate in R. 
+- But...
+
+Better to Overcomment
+========================================================
+- When in doubt, err on the side of overcommenting.  
+- Better to overcomment than to undercomment.  
+- But...
+
+Comments are not Deodorant
+========================================================
+
+Comments should not be used to
+- cover up bad smells in code (explain badly written code)
+
+Potentially confusing:
+```{r}
+l <- 30 # latitude in degrees
+```
+Better:
+```{r}
+latitude_deg <- 30 # latitude in degrees
+```
+
+Use Consistent Indenting
+========================================================
+- Easier to read
+- Easier to see where you are in the code, especially if you have several nested 
+conditions or `for` loops
+
+```
+if (y == 0) {
+  log(x)
+} else {
+  y ^ x
+}
+```
+
+Booleans
+========================================================
+Replace with more concise and direct alternatives
+- Replace `if (flag == TRUE)` with `if (flag)`
+- Replace 
+
+```
+if (matches > 0) {
+  found <- TRUE
+} else {
+  found <- FALSE
+}
+```
+with 
+```
+found <- (matches > 0)
+```
+
+Naming
+========================================================
+
+**Consistency** is very important in naming.  The style of a name immediately indicates what the entity is:
+  - a function, variable, etc...
+    
+Use as descriptive a name as possible.  
+  - Do not try to save horizontal space, as it is far more important to make your code immediately understandable to a reader.
+  - Descriptive Variables:
+    - ```asian_countries_with_most_planes_and_boats```
+    - ```african_countries_with_most_cars```
+
+
+Naming
+========================================================
+
+- Variables should be nouns
+  - Use ```num_errors``` or ```num_completed_connections```
+  - Avoid ```n``` or ```nerr``
+- Functions should be "command" verbs. 
+  - Use ```OpenFile()```
+  - Avoid ```File()```
+
+Naming
+========================================================
+
+- Use whole words to reduce ambiguity. Avoid abbreviations.
+  - Use ```ComputeArrivalTime()```
+  - Avoid ```ComputeArr()```
+- Specific phrases that are naturally known through abbreviations 
+can be abbreviated (e.g., cm)
+  - Even these cases might benefit from a defining comment 
+    at their first appearance. 
+
+Function Naming
+========================================================
+
+`CamelCase` is preferred for function names.
+
+The prefix `Is` should be used for boolean functions. `IsOverpriced()`
+  
+There are a few alternatives that fit better in some situations: `HasLicense()`, `CanEvaluate()`, `ShouldSort()`
+
+Avoid abbreviations.  Use `ComputeTotalWidth()` not `CompWid()`
+  
+Functions with a single output can be named for the output:
+Examples are `Mean()`, `StandardError()`
+
+Functions with no output should be named for what they do: `Plot()`
+
+Functions
+========================================================
+Use explicit `return`
+
+  - Use 
+```{r}
+    AddValues <- function(x, y) {
+      return(x+y)
+    }
+```
+  - Not 
+```{r}
+    AddValues <- function(x, y) {
+      x+y
+    }
+```
+
+
+
+Variable Names
+========================================================
+
+The names of variables should document their meaning or use.
+
+The prefix `num` should be used for variables representing the number of objects.  
+  - `num_files`, `num_segments`
+
+The suffix `array` should be used 
+
+  - for the pluralization of a variable
+    + `point_array`
+
+Use prefix `df` for dataframe
+
+  - `df_iris <- data(iris)`
+
+Variable Names
+========================================================
+
+Variables representing a single entity number 
+
+  - can be suffixed by `number`.
+    - `table_number`, `employeee_number`
+
+Iterator variables should be named or prefixed with `i`, `j`, `k` etc.
+
+  - `for (i_file in Mylist) {}`
+
+Avoid negated Boolean operators 
+
+  - Use `is_found` not `is_not_found`
+
+Units
+========================================================
+  NASA lost its \$125 million Mars Climate Orbiterbecause of issues with units in their data
+  - Make sure units are at least in comments
+  - `incident angle <- 90 # in degrees`
+  - Better to use a units suffix to helps avoid confusion
+  - Use ```incident_angle_radians``` not ```incident_angle```
+  
+
+Units package
+========================================================
+- Best way to handle units is `units` package
+```{r}
+    library(units)
+    x <- set_units(2, rad)
+    y <- set_units(35, degree)
+    x+y
+```
+```{r}
+    x <- set_units(2, m)
+    y <- set_units(35, cm)
+    x+y
+```
+
+
+
+Avoid magic numbers.
+========================================================
+- Magic numbers are numbers that appear directly in computations.  
+- The use of magic numbers 
+    - obscures the designer's intent in choosing that number, 
+    - increases possibilities for error, 
+    - and makes it more difficult to extend and adapt code in the future.  
+- Magic numbers should be replaced with constants or variables to make the program easier to maintain, understand, and read.
+
+Magic numbers example
+========================================================
+- Use 
+  ```{r}
+students_per_group <- 4
+num_groups <- 15
+students <- students_per_group * num_groups
+```
+- Avoid 
+```{r}
+students <- 4 * 15  # 4 is students per group
+                    # 15 is number of groups
+```
+
+Eliminate code duplication.  
+========================================================
+- Any block of code repeating itself should be considered for packaging as a function.
+- It is much easier to manage changes and debug if code appears in only one file.  
+- Do not copy and paste blocks of code.  
+  - If you find yourself cutting and pasting code, consider how you can create a new function or subfunction of this block of code.  
+- "Once and only once" guidelines
+  
+Function Versatility
+========================================================
+- Consider how your code could be applied to different scenarios
+- Avoid redundant functions
+- Test your code 
+  
+
+Practice Problem
+========================================================
+```{r}
+data("iris")
+for (i in 1:4) {
+  print(mean(iris[,i]))
+}
+```
+
+Practice Problem
+========================================================
+Answer
+```{r}
+data("iris")
+sapply(iris[,1:ncol(iris)], mean)
+```
+
+How would you improve?
+========================================================
+```
+ej <- filter(songs, Artist == 'elton john')
+em <- filter(songs, Artist == 'eminem')
+
+ej_unlist <- ej %>% unnest_tokens(output = 'word', input = 'Lyrics')
+ej_unlist %>%
+  count(word, sort = TRUE) %>%
+  head(10)
+
+em_unlist <- em %>% unnest_tokens(output = 'word', input = 'Lyrics')
+em_unlist %>%
+  count(word, sort = TRUE) %>%
+  head(10)
+```
+
+How would you improve?
+========================================================
+```
+color_clean$Dose <- NA
+for (i in 1:length(color_clean$ID)) {
+   if (color_clean$Exposure[i]  == "baseline" | color_clean$Exposure[i] == "HF" | color_clean$step[i] == 0) {
+     color_clean$Dose[i] <- 0
+   }
+  else{
+     if (color_clean$Exposure[i] == "mASTMG154") {
+       if (color_clean$step[i] == 1) {color_clean$Dose[i] <- acryhc_exp[2,3]*8*0.21835/12}
+       if (color_clean$step[i] == 2) {color_clean$Dose[i] <- (acryhc_exp[2,3] + acryhc_exp[3,3])*0.21835*8/12}
+       if (color_clean$step[i] == 3) {color_clean$Dose[i] <- (acryhc_exp[2,3] + acryhc_exp[3,3] + acryhc_exp[4,3])*0.21835*8/12}
+       if (color_clean$step[i] == 4) {color_clean$Dose[i] <- (acryhc_exp[2,3] + acryhc_exp[3,3] + acryhc_exp[4,3] + acryhc_exp[5,3])*0.21835*8/12}
+     }
+```
+
+

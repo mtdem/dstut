@@ -1,0 +1,24 @@
+How do I Clone my CourseRepo to /mnt/pan/courses
+1. Go to the forked 22f-dsci351-451-CaseID  repository on bitbucket
+2.  Clone the repository and get to your terminal in ondemand's rstudio
+3. Run "pwd" command to check your working directory 
+4.  Run "cd  /mnt/pan/courses/dsci351-451/CaseID/Git" to get into the new path
+5. Paste and run the copied command for the cloned repository in (2)
+6. You should be able to access your git diretory now (22f-dsci351-451-CaseID)
+7. Your working directory (22f-dsci351-451-CaseID) could easily be accessed by clicking home on the right-down console and going directly to the Git directory in the home directory. 
+
+Moving My Course Repo to /mnt/pan/courses/dsci351-451/CaseID/Git/
+a) Using the terminal
+1. Access the terminal on the rstudio, ondemand
+2. Run "pwd" command to check your working directory 
+3. Run "cd ~"
+4. Run "ls" to see a list of cloned course repo in the home directory
+5. Run 'mv 22f-dsci351-451-CaseID /mnt/pan/courses/dsci351-451/CaseID/Git" (Note: You should't have a file/course repo with the same name in the /mnt/pan/courses/dsci351-451/CaseID/Git path)
+b) Uisng the manual approach
+1. Go to the right-down console on your rstudio, and click home
+2. Mark the "22f-dsci351-451-CaseID" as seen on the home path
+3. Go to 'more', and click move
+4. A path directory will come up, click on Git and click choose
+
+
+RUN SDLE DIAGNOSTIC APP FREQUENTLY

@@ -1,0 +1,38 @@
+Hello @channel,
+
+As you may have found out, our Bitbucket repo had some bugs resulting in the lost of functionality. 
+Not to worry however, because loss of data is a common hurdle that all data-scientists must overcome! 
+Unfortunately this means that everyone in the class will 
+    Need to refork the -prof repo 
+    and then re-clone it onto your Markov Desktop, ODS Desktop and your personal notebook computer.
+
+Reforking the -prof repo
+    1. Navigate to the21f-dsci351-351m-451-e1451-e2451-prof repo
+       It is located at this link:https://bitbucket.org/cwrudsci/21f-dsci351-351m-451-e1451-e2451-prof/src/main/
+ 
+    2. On the left side of the screen in the blue toolbar click on the "+" symbol
+    3. Under the "Get to Work" subheading click "Fork This Repository"
+    4. Name the new repository "21f-dsci351-351m-451-e1451-e2451-CASEID-v2"
+
+This is so you have two distinct repos on your bitbucket
+    The original personal class repo with  ...CASEID and the new personal class repo with name ....CASEID-v2
+
+    5. Clone your new personal repo (CASEID-v2) by clicking on the "clone" gray button at the top of the screen
+       Using https as your security protocol
+       Into your Git directory
+
+    6. Cloning the new repo onto your desktop
+       Once you have copied your git clone link, return to Git Bash  (ODS Desktop) or Terminal (Markov)
+    7. Navigate to your personal Git folder using the "cd" command
+    8. Paste the clone command once you have navigated to the proper directory
+       ODS Desktop should be something like "H:\Git/"
+       Markov Desktop should be something like "~/home/CASEID/Git/"
+       And on your personal computer, something like "/Documents/Git"
+
+Once CASEID-v2 is successfully cloned down to your desktop 
+    9. You can move (in file explorer) any files you have edited from your "...CaseID Repo folder 
+       To your new "....CaseID-v2" repository folder.
+
+This step makes sure you don't lose any of the work you've been doing on your LEs 
+    (You should have started by now!!)
+

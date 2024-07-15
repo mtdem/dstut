@@ -1,0 +1,48 @@
+
+We keep all our course files and git repositories for DSCI/EMSE courses
+
+  In /mnt/pan/courses/COURSENAME
+  
+  So for DSCI353/453
+  
+    This is in /mnt/pan/courses/dsci353-453
+    BUt use the correct Course for what you are enrolled in. 
+  
+  
+  1. So in your Course folder under /mnt/pan/courses
+  
+  2. You want to go there 
+  
+    cd /mnt/pan/courses/dsci353-453
+    
+  3. And make a directory under dsci353/453 that is your CaseID
+  
+    mkdir rxf131
+    
+  4. now change into your own CaseID folder
+  
+    cd rxf131
+    
+  5. Now make your folder private to your self
+    While you are in the "root" or top level directory of your /mnt/pan/courses/COURSE/CaseID/
+    
+      chmod 700 .
+
+    Note the "." tells chmod to change the current directory.
+    giving it 700 permissions, which means its R/W for you, and invisible to other people
+    
+  6. Now make your Git folder
+  
+    mkdir Git
+    
+  7. Change into your Git subdirectory
+  
+    cd Git
+    
+  8. Now Clone your personal course Git Repository.
+    Using the https protocol
+  
+      git clone https://vuvlab@bitbucket.org/cwrudsci/23s-dsci353-453-zeb2.git
+
+    
+  Now your all setup

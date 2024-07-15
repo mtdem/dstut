@@ -1,0 +1,286 @@
+DSCI351-351M-451 Exploratory Data Science: 
+
+Data Analytic Style
+========================================================
+author: Roger H. French 
+date: `r format(Sys.time(), '%d %B, %Y')`
+autosize: true
+transition: rotate
+transition-speed: fast
+
+Class w03b-p: Data Analytic Style
+
+Reading, Homework, Projects, 451 SemProjects
+=======================================================
+
+  - Readings: 
+    - Finished Peng R programming
+    - You read OIS Ch4 for today. 
+    - Next week is Peng Exploratory Data Analysis (EDA)
+    - We then start [R4DS 1,2,3 Explore](http://r4ds.had.co.nz/)
+  - Lab Exercises
+    - LE1 due today, Tuesday at Midnight, Intro to R basics, R scripts
+    - LE2 given out Today
+      - Sync your personal class repo with the prof repo after I post 
+      - Then `git pull` to get update your class repo onto your Rstudio computer
+    - LE2 due Thursday Sept. 22nd, midnight
+      - Submit .R, .Rmd, .pdf files to the LE1 Assignment page on Canvas
+      - 1 point deducted per day for late submission
+
+Textbooks
+========================================================
+
+#### Textbooks
+
+##### Introduction to R and Data Science
+
+For students new to R, Coding
+
+  - Peng: R Programming for Data Science
+  - Peng: Exploratory Data Analysis with R
+  
+#### Textbooks for this class
+
+  - OIS = Diez, Barr, Çetinkaya-Rundle: Open Intro Stat v4
+  - R4DS = Wickham, Grolemund: R for Data Science
+  
+##### Textbooks for DSCI353,353m,453
+
+  - ISLR = James, Witten, Hastie, Tibshirani: Intro to Statistical Learning with R, 2nd Ed.
+  - DLwR = Chollet, Allaire: Deep Learning with R
+  - ESL = Trevor Hastie, Tibshirani, Friedman: Elements of Statistical Learning
+
+Standard Actions To Take for Class
+==========================================================
+
+  - When I push a commit to Bitbucket
+    - message appears in class channel
+  - You go to Bitbucket and "Sync" your class repo
+    - Then on your Markov Rstudio Server (rxf131) running R 4.2.1
+      - You can use the Rstudio git, or the terminal
+      - and run `git pull` to get the new files to your Markov Rstudio
+    - Then on your ODS Desktop using Git Bash
+      - Change to `/h/Git/20f-dsci.....`  directory
+      - and run `git pull` to get new files on your ODS Desktop
+
+How to Avoid Git "Merge Conflicts"
+==========================================================
+
+  - Change the names of files you want to work on
+    - This helps avoid "merge conflicts"
+    - Instructions on handling merge conflicts
+    - Given in root directory in file "FixingRepoProblems.txt"
+  - So if you want to run the class notes .Rmd files
+    - And for example knit them to pdf or to html
+    - **You need to change the file name, before you change the files**
+    - Since the files you get from prof, are "owned" by prof
+    - **When you rename a file, it becomse "owned" by you**
+    - And this avoids "merge conflicts" in git
+  - And each day when you are done working
+    - `git status`
+    - `git add --all :/`
+    - `git commit -m 'my commit message'`
+    - `git push`
+  - git push and git pull keep your repos 
+    - healthy, happy and coordinated
+
+Class Communications
+==========================================================
+
+  - Its best to use DSCI Slack and the Class Channel to ask Questions
+    - Tag me TAs in your question
+    - @Will Oltjen 
+    - @Kristen Hernandez
+    - @Mingxuan Li for Pitt students
+    - @Dylan Colvin, @Mengjie Li for UCF students
+  - You can also tag me, Prof Leu, Prof. Davis, Prof. Cirlos
+  - "Direct Messages" can be reserved for matters requiring a degree of privacy
+    - Better to have open discussion of questions in class channel
+  - fyi: I work in early morning, Not late at night
+  - If you email, make sure to cc the TAs
+    - This improves timeliness and responsiveness
+
+Syllabus
+=========================================================
+
+![DSCI351-351M-451 Syllabus](./figs/syllabus.png)
+
+
+Knitting a .R script to make a pdf
+=========================================================
+
+  - A student had a problem that the LE1-1 .R script didn't make a pdf
+    - Error = "R code execution error"
+  - How to solve?
+    - I google on "Rstats, When knitting a .R script I get "R code error" "
+    - [https://rmarkdown.rstudio.com/articles_report_from_r_script.html](https://rmarkdown.rstudio.com/articles_report_from_r_script.html)
+  - The YAML header (Yet Another Markdown Language)
+    - Had an error or missing characters
+    - Uses [Roxygen package](https://cran.r-project.org/web/packages/roxygen2/index.html) header and comments #'
+  - Example, see the ggplot2.R class notes
+
+
+Elements of Data Analytic Style
+=========================================================
+
+The data analysis checklist
+
+  - This comes from Leek's Leanpub.com book
+    - [The Elements of Data Analytic Style](https://leanpub.com/datastyle)
+    - Which is in /3-readings/1-textbooks in your class repo
+
+This checklist provides a condensed look at the information in this book. 
+  - It can be used as a guide during the process of a data analysis, 
+    - as a rubric for grading data analysis projects, 
+    - or as a way to evaluate the quality of a reported data analysis.
+
+The overall steps in a Data Analysis
+===========================================================
+
+  - I. Answering the question
+  - II. Checking the data
+  - III. Tidying the data
+  - IV. Exploratory analysis
+  - V. Inference
+  - VI. Prediction
+  - VII. Causality
+  - VIII. Written analyses
+  - IX. Figures
+  - X. Presentations
+  - XI. Reproducibility
+  - XII. R packages
+
+
+  I. Answering the question
+=================================================
+
+  1. Did you specify the type of data analytic question 
+    - (e.g. exploration, association causality) before touching the data?
+  2. Did you define the metric for success before beginning?
+  3. Did you understand the context for the question 
+    - and the scientific or business application?
+  4. Did you record the experimental design?
+  5. Did you consider whether the question 
+    - could be answered with the available data?
+
+  II. Checking the data
+=================================================
+
+  1. Did you plot univariate and multivariate summaries of the data?
+  2. Did you check for outliers?
+  3. Did you identify the missing data code?
+
+  III. Tidying the data
+=================================================
+
+  1. Is each variable one column?
+  2. Is each observation one row?
+  3. Do different data types appear in each table?
+  4. Did you record the recipe for moving from raw to tidy data?
+  5. Did you create a code book?
+  6. Did you record all parameters, units, and functions applied to the data?
+
+  IV. Exploratory analysis
+=================================================
+
+  1. Did you identify missing values?
+  2. Did you make univariate plots (histograms, density plots, boxplots)?
+  3. Did you consider correlations between variables (scatterplots)?
+  4. Did you check the units of all data points 
+    - to make sure they are in the right range?
+  5. Did you try to identify any errors or miscoding of variables?
+  6. Did you consider plotting on a log scale?
+  7. Would a scatterplot be more informative?
+
+  V. Inference
+=================================================
+
+  1. Did you identify what large population you are trying to describe?
+  2. Did you clearly identify the quantities of interest in your model?
+  3. Did you consider potential confounders?
+  4. Did you identify and model potential sources of correlation 
+    - such as measurements over time or space?
+  5. Did you calculate a measure of uncertainty 
+    - for each estimate on the scientific scale?
+
+  VI. Prediction
+=================================================
+
+  1. Did you identify in advance your error measure?
+  2. Did you immediately split your data into training and validation?
+  3. Did you use cross validation, resampling, or bootstrapping 
+    - only on the training data?
+  4. Did you create features using only the training data?
+  5. Did you estimate parameters only on the training data?
+  6. Did you fix all features, parameters, and models 
+    - before applying to the validation data?
+  7. Did you apply only one final model to the validation data 
+    - and report the error rate?
+
+  VII. Causality
+=================================================
+
+  1. Did you identify whether your study was randomized?
+  2. Did you identify potential reasons that causality may not be appropriate 
+    - such as confounders, missing data, 
+    - non-ignorable dropout, or unblinded experiments?
+  2. If not, did you avoid using language that would imply cause and effect?
+
+  VIII. Written analyses
+=================================================
+
+  1. Did you describe the question of interest?
+  2. Did you describe the data set, experimental design, 
+    - and question you are answering?
+  3. Did you specify the type of data analytic question you are answering?
+  4. Did you specify in clear notation the exact model you are fitting?
+  5. Did you explain on the scale of interest 
+    - what each estimate and measure of uncertainty means?
+  6. Did you report a measure of uncertainty 
+    - for each estimate on the scientific scale?
+
+  IX. Figures
+=================================================
+
+  1. Does each figure communicate an important piece of information 
+    - or address a question of interest?
+  2. Do all your figures include plain language axis labels?
+  3. Is the font size large enough to read?
+  4. Does every figure have a detailed caption that explains 
+    - all axes, legends, and trends in the figure?
+
+  X. Presentations
+=================================================
+
+  1. Did you lead with a brief, understandable to everyone 
+    - statement of your problem?
+  2. Did you explain the data, measurement technology, and experimental design 
+    -before you explained your model?
+  3. Did you explain the features you will use to model data 
+    - before you explain the model?
+  4. Did you make sure all legends and axes were legible 
+    - from the back of the room?
+
+  XI. Reproducibility
+=================================================
+
+  1. Did you avoid doing calculations manually?
+  2. Did you create a script that reproduces all your analyses?
+  3. Did you save the raw and processed versions of your data?
+  4. Did you record all versions of the software you used to process the data?
+  5. Did you try to have someone else run your analysis code 
+    - to confirm they got the same answers?
+
+  XII. R packages
+=================================================
+
+  1. Did you make your package name "Googleable"
+  2. Did you write unit tests for your functions?
+  3. Did you write help files for all functions?
+  4. Did you write a vignette?
+  5. Did you try to reduce dependencies to actively maintained packages?
+  6. Have you eliminated all errors and warnings from R CMD CHECK?
+
+
+
+

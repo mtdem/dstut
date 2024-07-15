@@ -1,0 +1,91 @@
+---
+title: "Data Science Infrastructure"
+subtitle: "Getting Started with Computing"
+format:
+  revealjs: 
+    slide-number: true
+    chalkboard: 
+      buttons: false
+    preview-links: auto
+    footer: Computing Infrastructure
+---
+
+## Bitbucket
+
+<font size="6">
+
+Getting Started
+
+- Accept your invitation to your email
+- Log in to bitbucket
+- You will see your class repo such as 22f-dsci351-351m-451-prof
+  - This the professor repo
+- Go there
+- There is a zoom recording covering these details
+  - https://cwru.zoom.us/rec/share/XQND-6-kkTMjopo1dnC03x8QgshdMgJXGE14vMEj5N9aN2wIRuoSqLKZmz_O1_BO.NlTRcrgsJC4r1WZl?startTime=1661787791000
+</font>
+
+## Bitbucket
+
+<font size="6">
+
+Set up App passwords
+
+- Keep this saved somewhere!
+- Need to use frequently
+
+Fork your Repo
+
+- Under the ... "Fork Repository"
+- Follow the instructions
+  - Save in CWRU-DSCI Workspace
+  - Project Associated with class (e.g., 22fa-354)
+- Change the "-prof" ending to "-your.case.id"
+
+</font>
+
+## OnDemand
+
+<font size="6">
+
+Logging into the compute cluster
+
+- ondemand.case.edu
+  - Case id and password
+- lots of different tools
+- Launch Rstudio Server
+  - Change Class/Research
+
+</font>
+
+## Storing Class Topics
+
+<font size="6">
+
+1. check where you are in the file system > pwd
+2. Then change directory to your own "student" home directory > cd /home/CaseID
+3. Make a folder in /home/CaseID  named Git   > mkdir Git
+4. Change Directory into /home/CaseID/Git/  > cd Git
+4. Then clone your Personal Fork of the "prof" repo there, using https protocol > git clone (paste link from bitbucket)
+  - Clone, copy
+  - Can't use control P
+5. Use bitbucket App Password
+
+For Class students in SDLE
+- make Git directory in cd /mnt/rstor/CSE_MSE_RXF131/cradle-members/CaseID
+
+</font>
+
+## My Apps
+
+<font size="6">
+
+- myapps.case.edu
+
+- Use light version
+
+</font>
+
+
+  
+

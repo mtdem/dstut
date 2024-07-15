@@ -1,0 +1,81 @@
+---
+title: "DSCI351-351m-451: LE "
+subtitle: "2200-353-353m-453-LE2a"
+author: "R. H. French, L. S. Bruckman, P. Leu, K. Davis, S. Cirlos"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: 
+  pdf_document:
+    latex_engine: xelatex
+    toc: true
+    number_sections: true
+    toc_depth: 6
+    highlight: tango
+  html_document:
+    toc: yes
+urlcolor: blue
+---
+
+<!--
+# Script Name: 
+# Authors: Roger H. French
+# License: Creative Commons Attribution-ShareAlike 4.0 International License.
+##########
+# Latest Changelog Entires:
+# v0.00.01 - 1501cwru-dsci-NAMEIT.RMD - Roger French started this blank Rmd
+##########
+
+# Rmd code goes below the comment marker!
+-->
+
+
+\setcounter{section}{2}
+\setcounter{subsection}{1}
+\setcounter{subsubsection}{0}
+
+#### Lab Exercise 2a: Classifiation
+
+2 Questions, for a total of 2 points
+
+  - Question 1 = 1.5 points
+  - Question 2 = 0.5 points
+
+#### Question ISLR Chapter 4, Exercise 10
+
+
+    
+##### (a) 
+
+```{r}
+
+```
+
+Answer: 
+
+
+
+#### Question ISLR Chapter 4, Exercise 12
+
+
+
+##### (a) Write a function, Power(), 
+
+  
+  
+```{r}
+
+```
+
+Answer:   
+
+
+
+#### Links
+ 
+
+
+<!--
+# Keep a complete change log history at bottom of file.
+# Complete Change Log History
+# v0.00.00 - 1405-07 - Nick Wheeler made the blank script
+##########
+

@@ -1,0 +1,49 @@
+Graduate Students in DSCI453
+  (do a semester project in DSCI453)
+  (Undergraduates do a semester project in DSCI352)
+
+Student_Name         	Username	SemProj Topic			Repo / Branch 
+DSCI453: 
+DSCI453:  
+DSCI453:  
+DSCI453:  
+DSCI453:  
+DSCI453: 
+DSCI453: 
+DSCI453: 
+DSCI453: 
+DSCI453: 
+DSCI453: 
+--------
+DSCI452:
+--------
+DSCI352: 
+DSCI352:  
+DSCI352:  
+
+------------------------------
+Graduate Students Menghong Wang, Alan Curran, JiQi Liu, Devin Gordon, Ahmad Karimi, Arash Khalilnejad
+  are all in White 540/550, and are availble for consulting and answering questions. 
+
+Possible Semester Projects
+0. Any idea you come up with
+1. Acrylic Degradation Network Models
+2. PV Backsheet A Degradation Network Models
+3. PV Backsheet B Degradation Network Models
+4. PV Backsheet C Degradation Network Models
+5. PET Degradation
+6. Weather in Cleveland
+7. Weather Cross-Correlation
+8. Time-Series of PV Plants vs Climate
+9. Times-Series of PV Plants vs Brand
+10. Image/Video Processing Metals (Python & SciPy)
+
+------------------------------
+No Semester Project
+		
+
+-------------
+
+
+
+

@@ -1,0 +1,8 @@
+If you have problems with not loading packages, 
+   or other R package library path issues.
+   
+   this is specific to Rstudio on Markov Data Science Cluster
+
+Run this command in the R console 
+
+source('/home/rxf131/ondemand/share/config/r-lib-path-fix.R')

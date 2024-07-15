@@ -1,0 +1,23 @@
+You still have access to the prof repo, is that correct? 
+         If not then the TA needs to add your bitbucket username as have READ access to the Prof repo.
+
+Here is what to do, If I understand your problem correctly.
+
+When you have problems pushing or pulling your repo on your ODS Desktop of Markov Rstudio Server to/from your repo up on bitbucket.
+
+1.  Take your repo on ODS Desktop, located in H:\Git\"reponame"
+1a. Make a folder H:\bkup\
+2. Copy all that folder, its files and subfolders to a different place on H:, ie H:\bkup\ 
+3. Now you have a safe backup of all your current working files.
+4. Now delete the folder/subfolders and all files, in H:\Git\"reponame" so that it is gone.
+
+5. Now go and clone your repo from Bitbucket, so you have a fresh local copy.
+6. Now you should be able to git pull and git push without problem, to your VDI.
+7. After successfully git pulling, move any single files that were in your old repo from H:\bkup\reponame, one at a time to your new H:\Git\reponame repository.
+8 Then git add ., git commit and git push, and they will go up to Bitbucket.
+
+9. If you have the problem that you can't sync from Prof repo on Bitbucket to your own repo on bitbucket, then you still do steps 1 to 4, so that you back up your local repository.
+10 Now on bitbucket delete your own repository, so that it is gone.
+11. Now re-fork my prof repo on bitbucket.
+Then return to the list above and do steps 5 to 8.
+

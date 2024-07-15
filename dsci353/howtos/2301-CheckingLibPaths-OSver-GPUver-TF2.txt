@@ -1,0 +1,59 @@
+
+
+To meet the compatibility needs of TensorFlow2 and Torch
+  And the Nvidia GPU Driver, CUDA and CuDNN libraries
+  We need to use two different versions of Ubuntu Linux:
+    Ubuntu Linux 20.04 is needed for Deep Learning with GPUs from R
+    Ubuntu Linux 22.04 will work otherwise,
+      But not for GPUs and TensorFlow2 or Torch
+
+To check your R package library path:
+  In the R console (bottom left quadrant of RstudioServer(rxf131)
+    .libPaths()
+    For Ubuntu Linux 20.04 RstudioServer(rxf131)
+      The first library path should be: [1] "/home/rxf131/ondemand/ubuntu2004/r4"
+    For Ubuntu Linux 22.04 RstudioServer(rxf131)
+      The first library path should be: [1] "/home/rxf131/ondemand/ubuntu2204/r42"
+  
+  If it isn't, you need to fix your .libPaths()
+    And are using a Ubuntu Linux 20.04 RstudioServer(rxf131)
+      source('/home/rxf131/ondemand/share/config2004/r-lib-path-fix.R')
+    Or if your using a Ubuntu Linux 22.04 RstudioServer(rxf131)
+      source('/home/rxf131/ondemand/share/config/r-lib-path-fix.R')
+  
+To check what version of Ubuntu Linux your Containerized App is running
+  In the Rstudio Server Linux Terminal (bottom left quadrant)
+    Type "lsb_release -a"
+      And you should see either
+        20.04
+          No LSB modules are available.
+          Distributor ID: Ubuntu
+          Description:    Ubuntu 20.04.5 LTS
+          Release:        20.04
+          Codename:       focal
+        22.04
+          LSB Version:    core-11.1.0ubuntu4-noarch:security-11.1.0ubuntu4-noarch
+          Distributor ID: Ubuntu
+          Description:    Ubuntu 22.04.1 LTS
+          Release:        22.04
+          Codename:       jammy
+          
+To check on how your GPU is doing, there are two commands
+  In Linux Terminal (of LXDE Desktop or 20.04-RStudioServer(rxf131))
+    type "nvidia-smi"  
+      this will show if you have a GPUs
+      Is its memory full or empty
+      Is it busy
+    But also you need to check the Cuda library version
+      nvcc --version
+        nvcc: NVIDIA (R) Cuda compiler driver
+        Copyright (c) 2005-2021 NVIDIA Corporation
+        Built on Mon_May__3_19:15:13_PDT_2021
+        Cuda compilation tools, release 11.3, V11.3.109
+        Build cuda_11.3.r11.3/compiler.29920130_0
+
+
+And to check your tensorflow is using GPU,
+  Run these two commands in the R console
+    library(tensorflow)
+    tf$config$list_physical_devices("GPU")
